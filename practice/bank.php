@@ -9,7 +9,7 @@ $quarter_value = .25;
 
 # Define 4 more variables, which will each
 # represent how many of each coin is in the bank
-//adding a comment 
+//adding a comment changed penny_value to create another commit - bank.php is not in e2practice repository on git despite first commit.
 
 $pennies = 100;
 $nickels = 25;
