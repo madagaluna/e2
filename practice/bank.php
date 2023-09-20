@@ -2,13 +2,14 @@
 //comment out code
 # Define 4 different variables, which will
 # each represent how much a given coin is worth
-$penny_value = .01;
+$penny_value = .00001;
 $nickel_value = .05;
 $dime_value = .10;
 $quarter_value = .25;
 
 # Define 4 more variables, which will each
 # represent how many of each coin is in the bank
+//adding a comment 
 
 $pennies = 100;
 $nickels = 25;
