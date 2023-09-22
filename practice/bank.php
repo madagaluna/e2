@@ -2,7 +2,7 @@
 //comment out code
 # Define 4 different variables, which will
 # each represent how much a given coin is worth
-$penny_value = .00001;
+$penny_value = .01;
 $nickel_value = .05;
 $dime_value = .10;
 $quarter_value = .25;
@@ -38,7 +38,7 @@ $total = ($pennies * $penny_value) + ($nickels * $nickel_value) + ($dimes * $dim
 
     <p>
         You have $<?php echo $total; ?> in your piggy bank.
-        #the server
+
     </p>
 
 </body>
