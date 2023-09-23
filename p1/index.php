@@ -1,27 +1,19 @@
-<!DOCTYPE html>
-<html lang='en'>
+<?php
+//comment out code
+# Define 4 different variables, which will
+# each represent how much a given coin is worth
 
-<head>
+# $penny_value = .01;
 
-    <title>Project 1</title>
-    <meta charset="utf-8">
 
-</head>
+# Define 4 more variables, which will each
+# represent how many of each coin is in the bank
+//adding a comment
 
-<body>
-    <h2>Game Mechanics</h2>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-    <h2>Results</h2>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+# $pennies = 300;
 
-</body>
 
-</html>
+# Add up how much money is in the piggy bank
+#$total = ($pennies * $penny_value) + ($nickels * $nickel_value) + ($dimes * $dime_value) + ($quarters * $quarter_value) + ($hquarters * $hquarter_value);
+
+require 'index-view.php';

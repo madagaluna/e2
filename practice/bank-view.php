@@ -16,7 +16,6 @@
 
     <p>
         You have $<?php echo $total; ?> in your piggy bank.
-
     </p>
 
 </body>
