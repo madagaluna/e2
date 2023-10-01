@@ -29,4 +29,4 @@ echo "should yield 5 random cards";
 var_dump($playerCards); 
  
 echo "should yield 5 different random cards";
-var_dump($playerCards); 
+var_dump($computerCards); 
