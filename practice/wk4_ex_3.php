@@ -13,18 +13,16 @@ $computerCards = [];
 #Your code to distribute the cards in an alternating fashion to pC and cC
 
  foreach($cards as $key => $number) {
-    if ($key < 5 and $key  % 2 == 0);
+    if ($key % 2 == 0);
     // echo 'used https://www.geeksforgeeks.org/php-check-number-even-odd/' - then saw it in e2 notes!;
-    $playerCards[] = array_shift($cards);
-    if ($key <= 4 and $key % 2 != 0);
-    $computerCards[] = array_shift($cards);
+        $playerCards[] = array_shift($cards);
+    if ($key % 2 != 0);
+        $computerCards[] = array_shift($cards);
     if($key >= 4) {
         break;
     }
 
 }
- 
-
 
 #verify results
 echo "should yield 5 random cards";
