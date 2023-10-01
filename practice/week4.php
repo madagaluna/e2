@@ -1,185 +1,196 @@
 <?php
 
-echo "HELLO week4.php~"; 
+/*----------------------------------------------------
+Week 4, Part 2: Arrays
+-----------------------------------------------------*/
+# Define an array of strings
+#           0       1         2
+$moves = ['rock', 'paper', 'scissors'];
 
-# track moves of rock paper scissors
-# an array to hold moves
-# moves variable and set it to an array:
-$moves = ['rock', 'paper', 'scissors']; #array of string (quotes), two datatypes: 
+# Define an array of integers
+#                0, 1, 2, 3, 4, 5
+$strawLengths = [2, 2, 2, 2, 2, 1];
 
-$strawLengths = [2,2,2,2,2,1]; # numerical values or both
+# Define an array of mixed values
 $mixed = ['rock', 1, .04, true];
 
-#how to extract data from an array
-# positions within arrarys begins at 0.  Rock is 0, paper is 1, scissors is 2
-#extract
-echo $moves[0];
-echo $moves[1];
-echo $moves[2];
-echo "           ";
+# Practice extracting values from the array using keys
+// echo $moves[0]; # 'rock'
+// echo $moves[1];
+// echo $moves[2];
+// echo $moves[3]; # Notice: Undefined offset: 3
+// var_dump($moves);
 
-#if you go beyond the scope you get an undefined offset warning.
-echo "THERE IS NOT A 6 in the array so you get bad variable warning ~";
-echo $moves[6];
-
-#debugging: dump a variable to the page -output content of array, esp undefined arrays:
-echo "var_dump:~ ";
-var_dump($moves); 
-
-echo " HOW TO build game logic:~";
-echo "EXPECTS MIN and max_numbers~";
-echo "THE MIN and max numbers correspond to the position of the data in the array.e.g. 0 EQUALS ROCK!!! ~If there are no min or max numbers you get an error with a large number ";
-echo "REFRESH PAGE and int(x) will change    ";
-$randomNumber = rand(0,2);
-var_dump($randomNumber);
-echo "~ so to use teh random fx write (see php)";
+# Randomly extracting a value from the array
+$randomNumber = rand(0, 2);
 $move = $moves[$randomNumber];
-echo "~ use var_d to see the output - note move and moves are different ~";
-var_dump($move);
-echo "~takeaway: use var_d to make sure you are getting values you expect";
-echo " different kind of arrays: Associative array - define own keys";
 
-$penny_value = .01;
-$nickel_value = .05;
-$dime_value = .10;
-$quarter_value = .25;
-$hquarter_value = .50;
-
-# create a key, 1st is pnny, add points to operator to assign
-
+# Associative arrays
 $coin_values = [
-    'penny'=> .01,
-    'nickel'=> .05, 
+    'penny' => .01,
+    'nickel' => .05,
     'dime' => .10,
-    'quarter' =>.25
+    'quarter' => .25
 ];
-
-#to extact values:
-var_dump($coin_values['quarter']);
-
-# underscore of twp words is snake_case one word - rndnmber - is something else - you want to be consistent
 
 $coin_counts = [
-    'penny'=> 100,
-    'nickel'=> 25,
-    'dime'=> 100,
-    'quarter'=> 34,
-   
+    'penny' => 100,
+    'nickel' => 25,
+    'dime' => 100,
+    'quarter' => 34,
 ];
 
-echo "REASONS FOR AN ARRAY versus individual values for scalar variables include
-organization - related values, group them in an array
-programs that do array sorting, e.g asort  asort sorted based on values, alphabetically sorting an array based on it's values smallest value to largets ";
+# Extracting a value from an associative array by the key name
+//var_dump($coin_values['quarter']); # .25
 
+# Sort an array by its values
 asort($coin_counts);
-var_dump($coin_counts);
-echo "arsort reverse sorts the array";
-asort($coin_counts);
-var_dump($coin_counts);
 
-echo "SORTING ON THE KEYS: (alphabetically on the key. e.g. dimes, nickles, etc.) ksort";
+# Reverse sort an array by its values
+arsort($coin_counts);
 
+# Sort an array by its keys
 ksort($coin_counts);
-var_dump($coin_counts);
 
-krsort($coin_counts);
-var_dump($coin_counts);
-
-
-
-echo "FOREACH @ 37 minutes in video coin is the key -commented out answer";
-/* $total = 0;
-foreach ($coin_counts as $coin => $count)
-{
-    $total = $total +($count * $coin_values[$coin]);
-
-}
-
-
-var_dump($total); */
-
-echo "A more efficient way to write this is in a multidimensional array. Both arrays have the same set of keys.  DRY do not repeat
-new variable - an array within an array, initialized as info";
-/* $coins = [
-    'pen'=> [100, .01],
-    'nic'=> [25, .05],
-    'dim'=> [100, .10],
-    'quart'=> [34, .25],
-    'new coin tacked on' => [100, .5]
-];
-
-foreach($coins as $key => $info) {
-    $total = $total + ($info[0] * $info[1]);
-}
-var_dump($total); */
-
-echo "now to make the info an associative array @ 45 minutes in video what was: 
-";
-
+# Combining all our coin data into one multi-dimensional associative array
+$total = 0;
 $coins = [
-    'pen'=> [
-        'count' =>100, 
-        'value' =>.01
+    'penny' => [
+        'count' => 100,
+        'value' => .01
     ],
-    'nic'=> [
-        'count' => 25, 
-        'value' =>.05
+    'nickel' => [
+        'count' => 25,
+        'value' => .05
     ],
-    'dim'=> [
-        'count' =>100, 
-        'value' =>.10
+    'dime' => [
+        'count' => 100,
+        'value' => .10
     ],
-    'quart'=> [
-        'count' =>34,
+    'quarter' => [
+        'count' => 34,
         'value' => .25
     ],
-    'new coin tacked on' => [
-        'count' => 1000,
-        'value' => .5
-        ]
+    'halfDollar' => [
+        'count' => 10,
+        'value' => .50
+    ]
 ];
-$total = 0;
-foreach($coins as $key => $info) {
+
+# Using the above array, we can dynamically calculate a total
+foreach ($coins as $coin => $info) {
     $total = $total + ($info['count'] * $info['value']);
 }
-var_dump($total);
 
-echo "GAMES";
-
-$cards= [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
-
+# Some more basic array manipulation using card games as an example
+$cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 shuffle($cards);
 
-var_dump($cards);
-
-echo "SPLIT the deck  below says splice the deck, use array, start at position zero, go to the 5th card";
-
-/* 
-echo "the leftover cards are the computer's cards";
+# Split the deck into 2
+$playerCards = array_splice($cards, 0, count($cards) / 2);
 $computerCards = $cards;
-var_dump($playerCards); */
-// to draw a card
-$playerCards = array_splice($cards, 0, count($cards)/2);
-echo "VERIFY";
-var_dump($playerCards);
 
-$playerDraw = $playerCards [4];
-echo "VERIFY";
-var_dump($playerCards);
-var_dump($playerDraw);
+# One way to draw a card for the player
+$playerDraw = $playerCards[count($playerCards) - 1];
 
-echo "use -1 because the first position is 0";
-$playerDraw = $playerCards [count($playerCards) - 1]; 
-echo "VERIFY";
-var_dump($playerCards);
-var_dump($playerDraw);
-
-echo "TO MAKE splicing the cards more dynamic, use count";
-
-Echo "POP is another way to draw cards that removes them from the playerCards array";
-
-var_dump($playerCards);
-echo "now POP";
+# A better way to draw a card for the player because it alters the original array
 $playerDraw = array_pop($playerCards);
-var_dump($playerCards);
-var_dump($playerDraw);
+
+
+
+/*----------------------------------------------------
+Week 4, Part 3: Internal (built-in) functions
+-----------------------------------------------------*/
+$str = strtolower("Mary Had A Little Lamb and She LOVED It So");
+//var_dump($str); // Prints mary had a little lamb and she loved it so
+
+$stringA = "Mary Had A Little Lamb and She LOVED It So";
+$stringB = "Mary";
+
+// var_dump(stripos($stringA, $stringB)); # 0
+
+$letters = ['a', 'x', 'f', 'l', 'b'];
+
+// var_dump(asort($letters)); # bool(true)
+// var_dump($letters);
+
+
+
+/*----------------------------------------------------
+Week 4, Part 4: Conditionals
+-----------------------------------------------------*/
+$coin = ['heads', 'tails'];
+
+# Player’s choice
+$randomNumber = rand(0, 1);
+$player1Choice = $coin[$randomNumber];
+
+# Coin flip logic using conditionals
+$randomNumber = rand(0, 1);
+$flip = $coin[$randomNumber];
+
+//var_dump(4 > 5); # False
+//var_dump(6 > 5); # True;
+//var_dump(6 == 9); # False;
+
+if ($player1Choice == $flip) {
+    //var_dump('Player 1 wins!');
+} else {
+    //var_dump('Player 1 lost :(');
+}
+
+# RPS Scissors logic using conditionals
+$moves = ['rock', 'paper', 'scissors'];
+$player1Move = $moves[rand(0, 2)];
+$player2Move = $moves[rand(0, 2)];
+
+// var_dump($player1Move);
+// var_dump($player2Move);
+
+if ($player1Move == $player2Move) {
+    //var_dump('Tie');
+} elseif ($player1Move == 'rock' and $player2Move == 'paper') {
+    //var_dump('Player 2 wins');
+} elseif ($player1Move == 'rock' and $player2Move == 'scissors') {
+    //var_dump('Player 1 wins');
+}
+# ...etc...
+
+
+
+
+echo "LOOOK HEREEEERREEREREREE";
+/*----------------------------------------------------
+Week 4, Part 5: Loops
+-----------------------------------------------------*/
+# Count from 0-10 using a foreach loop USE WITH AN ARRAY
+$numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+foreach ($numbers as $key => $number) {
+   // var_dump($number);
+}
+#WHEN YOU have set rounds use this
+# Count from 0-10 using a for loop WHERE TO START, HOW LONG THE LOOP GOES, HOW TO CHANGE VARIABLE EACH TIME THROUGH iplusplus is adding one each time through
+for ($i = 0; $i <= 10; $i++) {
+    var_dump($i);
+}
+#you dont know how many times it will loop use this one.
+# Count from 0-10 using a while loop
+$i = 0;
+while ($i <= 10) {
+    //var_dump($i);
+    $i++;
+}
+
+# Example use of while loop in a number guessing game
+$answer = 5;
+$guess = null;
+
+while ($guess != $answer) {
+    $guess = rand(0, 10);
+    //var_dump('Guess: ' . $guess);
+}
+
+$cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+shuffle($cards);
+
+$dealTo = 'player';
