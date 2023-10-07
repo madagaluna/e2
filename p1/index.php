@@ -1,8 +1,8 @@
 <?php
 ## Game planning
 + itialize an array called schedule for two elements, a string and an integer (band names and times)
-+ Create an array of band names
-+ Create an array of times to play
++ Create an array of band names with the names
++ Create an array of times to play with the times
 + For performer, randomly choose an element from the band names 
 + For performer, randomly choose an element from the time to play array
 + Compare Performer A's time to the integer element in the schedule array, if they don't match, pop the band name and time to array 
