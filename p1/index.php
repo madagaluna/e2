@@ -33,7 +33,6 @@ $times =[1,2,3];
 
    $results [] = [
     'the_Foos_time' => $performerA_time,
-    'bummer' => $bummer,
     'the_Bars_time' => $performerB_time,
     'the_Schedule_is' => $schedule_String,
    ];    
