@@ -36,6 +36,11 @@ if($schedule >= 0) {
         echo "Performer B should pick a new time  ";
        }
 }
+// print final schedule
+echo "Final Schedule:  ";
+echo "Performer A will play at: " . $performerA_time ;
+echo "Performer B will play at: " . $performerB_time ;
+
 
 // foreach ($times as $time) {
  //  if ($schedule = $time) {
