@@ -22,9 +22,10 @@ $times =[1,2,3];
         $schedule[] = $performerB_time; }
 //           echo "Rock and Roll! The Foos will perform at  " . $performerA_time . " and The Bars will perform at  " . $performerB_time;
 // announce that The Bars will not perform - maybe just keep this         
-     //  } else {
-      //         echo "Wah-Wah is not just a pedal. The Bars will not be a performing today.";
-      //      }
+        else {
+
+               $schedule[] = "Wah-Wah is not just a pedal. The Bars will not be a performing today.";
+           }
 
 // print the schedule https://www.w3schools.com/php/func_string_implode.asp
   $schedule_String =  implode(" , ", $schedule);
@@ -32,6 +33,7 @@ $times =[1,2,3];
 
    $results [] = [
     'the_Foos_time' => $performerA_time,
+    'bummer' => $bummer,
     'the_Bars_time' => $performerB_time,
     'the_Schedule_is' => $schedule_String,
    ];    
