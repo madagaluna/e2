@@ -32,8 +32,4 @@ $performerB_time = 0;
                 echo "Wah-Wah is not just a pedal. performance today Performer B.";
             }
 
-          
-
-
-
 // require 'index-view.php';
