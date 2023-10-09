@@ -1,18 +1,32 @@
 <?php
 ## Game planning
 //+ itialize an array called schedule for two elements, a string and an integer (band names and times)
-$schedule = ['0'];
+$schedule = '0';
 //+ Create an array of times to play with the times
 $times =[1,2,3,4,5];
 var_dump($times);
-
-$performance = $times[array_rand(0,4)];
-var_dump($performance);
 //+ For performer, randomly choose an element from the time to play array
-//$ = $times[rand(0,4)];
-//var_dump($performer);
-//+ Compare Performer A's time to the integer element in the schedule array, if they don't match, pop the band name and time to array 
-//if ($performer[$time]) != $schedule[1];
+$performance = $times[array_rand($times)];
+// echo 'this time'var_dump($performance); ;
+
+//+ Compare Performer time to the integer element in the schedule array
+
+if ($performance != $schedule){
+    $schedule = $performance;
+}
+ 
+else {
+     echo "That time is taken. Pick a new time";
+}
+if ($performance >= 0) {
+    $performance = $times[array_rand($times)];
+} 
+else {
+     echo "Schedule: " . $schedule;
+}
+//if they don't match, pop the band name and time to array 
+
+
   //  $schedule = [$band, $times];
     //elseif ($performer[$time]) = $schedule[1]; echo //$performer[$time] "is not available.  Choose a new time';
 
@@ -23,4 +37,4 @@ var_dump($performance);
 
 
 
-require 'index-view.php';
+//require 'index-view.php';
