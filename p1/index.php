@@ -27,13 +27,13 @@ $times =[1,2,3];
       //      }
 
 // print the schedule https://www.w3schools.com/php/func_string_implode.asp
-//echo "  There will be music at:  ". implode(" , ", $schedule);
+  $schedule_String =  implode(" , ", $schedule);
 //show results
 
    $results [] = [
     'the_Foos_time' => $performerA_time,
     'the_Bars_time' => $performerB_time,
-    'the_Schedule_is' => $schedule
+    'the_Schedule_is' => $schedule_String,
    ];    
 }
 require 'index-view.php';
