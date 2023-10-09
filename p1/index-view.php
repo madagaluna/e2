@@ -11,13 +11,10 @@
 <body>
     <h1>Rock or Roll</h1>
     <h2>Game Mechanics</h2>
-    <p> The goal of the game is to pick a time and location for all the bands to create the optimum porchfest line-up of
-        performances. Although a real world model would allow for players to enter their location, with its unique
-        longitude and latitude, and determine proximity to other participants based on those numbers, this game will
-        have preset
-        addresses with proximity to other addresses factored in. This could be a game changer for porchfest organizers!
-        There'd be other factors, like loudness, that I'd have to factor in, but time and location are the primary
-        issues.</p>
+    <p> The goal of the game is for "The Foos" to be randomly assign a time to perform. Their time is added to the
+        schedule Then "The
+        Bars" are randomly assigned a time to perform. If there is not a conflict with the times, "The Bars" time is
+        added to the schedule. Otherwise, just "The Foos" perform.</p>
 
     <ul>
         <li>One array (I'm pretty sure both data points would be in one array) for location and time, starts empty in
