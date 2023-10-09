@@ -17,28 +17,22 @@
         added to the schedule. Otherwise, just "The Foos" perform.</p>
 
     <ul>
-        <li>One array (I'm pretty sure both data points would be in one array) for location and time, starts empty in
-            the controller.</li>
-        <li>Addresses and performance times will be preset in the form (view)</li>
-        <li>User will select an address and a time for their performance from the form</li>
-        <li>Controller will determine whether the location and time is acceptable by running the variables against other
-            scheduled performances in the location and time array.
-        <li>If there is no conflict, controller will add location and time to the the specific array and the user will
-            send a message to the view to display for the user "You can Rock! Schedule the next band". Continue until
-            all the bands have been scheduled</li>
-        <li>If there is a conflict with other performances, controller will clear form (?) and the user will get a
-            message "Roll again!"
-            <!--  Depending on how
-            difficult this is, the message may have more detail about why there is a conflict -->
-        </li>
+        // <li> ?></li>
+        // <li> ?></li>
+        // <li> ?></li>
+
     </ul>
     <h2>Results</h2>
+    <?php foreach($results as $result) { ?>
     <ul>
-
-        <li>Once all the bands have been schedule, the user will get a message "Rock and Roll: Everyone wins!"
+        <li>The Foos are playing at <?php echo $result['the_Foos_time'] ?>
+        </li>
+        <li>The Bars are playing at <?php echo $result['the_Bars_time'] ?>
+        </li>
+        <li>The Schedule for the day is: <?php echo $result['the_Schedule_is'] ?>
         </li>
     </ul>
-
+    <?php } ?>
 </body>
 
 </html>
