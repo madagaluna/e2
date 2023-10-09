@@ -1,6 +1,7 @@
 <?php
 ## Game planning
-//+ itialize an array called schedule for two elements, a string and an integer (band names and times)
+
+///+ itialize an array called schedule for two elements, a string and an integer (band names and times)
 $schedule = 0;
 //+ Create an array of times to play with the times
 $times =[1,2,3,4,5];
@@ -9,11 +10,12 @@ $times =[1,2,3,4,5];
 shuffle($times);
 foreach ($times as $time) {
     $schedule = $time;
-}
-//+ Let perfomrer know where they are scheduled
- echo "Performer is scheduled for: ", $schedule,
 
-//if ($performance != $schedule){
+//+ Let perfomrer know where they are scheduled
+ echo "Performer is scheduled for: ", $schedule;
+}
+ // final schedule
+ echo "final schedule: ", $times;
   //  $schedule = $performance;
 //}
  
