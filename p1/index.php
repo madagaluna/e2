@@ -12,8 +12,12 @@ $times =[1,2,3,4,5];
     if ($performerA_time != $schedule) {
         // updated schedule if they don't match
         $schedule = $performerA_time;
-        var_dump($performerA_time);
+      //  var_dump($performerA_time);
+        echo "Performer A scheduled for time:  " ,$schedule; 
     }
+  else {
+    echo "Performer A should pick a new time  ";
+   }
 
 // foreach ($times as $time) {
  //  if ($schedule = $time) {
@@ -49,4 +53,4 @@ $times =[1,2,3,4,5];
 
 
 
-require 'index-view.php';
+// require 'index-view.php';
