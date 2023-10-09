@@ -1,21 +1,29 @@
 <?php
 ## Game planning
 
-///+ itialize an array called schedule for two elements, a string and an integer (band names and times)
+///+ itialize an array called schedule
 $schedule = 0;
 //+ Create an array of times to play with the times
 $times =[1,2,3,4,5];
 //var_dump($times);
-//+ shuffle / randomly assign the times to play
-shuffle($times);
-foreach ($times as $time) {
-    $schedule = $time;
+//+ For Performer A, randomly chose a time to play:
+    $performerA_time = $times[array_rand($times)];
+// compare to schedule to see if time is available
+    if ($performerA_time != $schedule) {
+        // updated schedule if they don't match
+        $schedule = $performerA_time;
+        var_dump($performerA_time);
+    }
+
+// foreach ($times as $time) {
+ //  if ($schedule = $time) {
+ //   $schedule = $time;
+//   };
 
 //+ Let perfomrer know where they are scheduled
- echo "Performer is scheduled for: ", $schedule;
-}
- // final schedule
- echo "final schedule: ", $times;
+ //echo "Performer is scheduled for: ", $schedule;
+ //} // final schedule
+ //echo "final schedule: ", $times;
   //  $schedule = $performance;
 //}
  
