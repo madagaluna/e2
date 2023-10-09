@@ -1,13 +1,13 @@
 <?php
 ## Game planning
 //+ itialize an array called schedule for two elements, a string and an integer (band names and times)
-$schedule = ["",'0'];
+$schedule = ['0'];
 //+ Create an array of times to play with the times
-$times =[0,4];
+$times =[1,2,3,4,5];
 var_dump($times);
-//+ For performer, randomly choose an element from the band names 
-$performer = $times[rand(0,4)];
-var_dump($performer);
+
+$performance = $times[array_rand(0,4)];
+var_dump($performance);
 //+ For performer, randomly choose an element from the time to play array
 //$ = $times[rand(0,4)];
 //var_dump($performer);
