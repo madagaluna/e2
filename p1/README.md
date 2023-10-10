@@ -5,18 +5,14 @@
 
 ## Game planning
 
-+ initialize an array called schedule
-+ Create an array of times to perform
-+ defining the performer variables
-+ For Performer A, randomly choose a time to perform:
-+ add performer A's time to the schedule    
-+  For Performer B, randomly choose a time to perform:
-+  compare performer B's time to performer A's time to see if time is available
-+  updated schedule to include PB if the time is available and announce when both bands will perform        
-+ announce that the second band will not perform 
-+ print performance schedule         
-
-
+        Initialize an array to hold results
+        Create an array of available performance times
+        For Performer A, randomly choose a time to perform
+        For Performer B, randomly choose a time to perform
+        Update schedule to include Performer B if the time is available
+        Announce that The Bars will not perform 
+        Concatenate the schedule and make it a string 
+        Show results  
 
 ## Outside resources
 https://www.w3schools.com/php/func_string_implode.asp
