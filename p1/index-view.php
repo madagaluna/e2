@@ -29,9 +29,9 @@
     <h2>Results</h2>
     <?php foreach($results as $result) { ?>
     <ul>
-        <li>The Foos signed up for <?php echo $result['the_Foos_time'] ?>
+        <li>The Foos were signed up for <?php echo $result['the_Foos_time'] ?>
         </li>
-        <li>The Bars signed up for <?php echo $result['the_Bars_time'] ?>
+        <li>The Bars were signed up for <?php echo $result['the_Bars_time'] ?>
         </li>
         <li>The performance time(s) will be: <?php echo $result['the_Schedule_is'] ?>
         </li>

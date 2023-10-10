@@ -21,11 +21,11 @@ $times =[1,2,3];
 // else update schedule that The Bars will not be performing        
         else {
 
-               $schedule[] = "Wah-Wah is not just a pedal. The Bars will not be a performing today.";
+               $schedule[] = "that's it: Wah-Wah is not just a pedal. The Bars will not be a performing today.";
            }
 
 // concatenate the schedule and make it a string https://www.w3schools.com/php/func_string_implode.asp
-  $schedule_String =  implode(" , ", $schedule);
+  $schedule_String =  implode(" and ", $schedule);
 //show results
 
    $results [] = [
