@@ -8,5 +8,5 @@ $product = $catalog->getById(9); # invoking a method explicitly ^ is a magic met
                                 # 9 is hard coding
 
 #var_dump($catalog->products);  is the same as
-#var_dump($catalog->getAll());  because $catalog is public in the file .  30 min wk 7, prt 5, revisit this
+#var_dump($catalog->getAll());  because $catalog is public in the file .  30 min wk 7, prt 5, revisit this  -although answer to #9
 #var_dump($catalog->searchByName('Cheerios'));
