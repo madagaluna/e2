@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <form method='POST' action='process.php'>
+    <form method='POST' action='process.php'> method = how you are submitting action = where you are submiting
         <h1>Mystery Word Scramble</h1>
         <p>Mystery word: kiumppn</p>
         <p>Hint: Halloween’s favorite fruit</p>
