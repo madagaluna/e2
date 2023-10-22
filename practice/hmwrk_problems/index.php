@@ -3,7 +3,8 @@
 // initalize an array to hold results 
 ## adding fx
 function availabletimes($performerA_time, $performerB_time) {
-    return $performerA_time != $performerA_time;
+    return $performerA_time != $performerB_time;
+
 $results = [];
 }
 for ($i = 1; $i <=10; $i++) {
