@@ -33,7 +33,7 @@ if (isset($_SESSION['results'])) {
     $lastWord = $_SESSION['word']; #store the word
 
     # If they got it correct we will pick a new word
-    $useNewWord = $correct; #set the new word to whatever correct is - this is BOOLEAN - true or false -  if they get it correct, $useNewWord will be true which prompts the SET THE WORD code to pick new word, otherwise got to ELSE and set the word to whatever the word is. This is also the same as 'if ($corretc) { $useNewWord = true;} else {    $useNewWord = $correct; #set the new word to whatever correct is - this is BOOLEAN - true or false -  if they get it correct, $useNewWord will be true which prompts the SET THE WORD code to pick new word, otherwise got to ELSE and set the word to whatever the word is. This is also the same as 'if ($corretc) { $useNewWord = true;} else {$useNewWord = false;}
+    $useNewWord = $correct; #set the new word to whatever correct is - this is BOOLEAN - true or false -  if they get it correct, $useNewWord will be true which prompts the SET THE WORD code to pick new word, otherwise go to ELSE and set the word to whatever the word is. This is also the same as 'if ($correct) { $useNewWord = true;} else {    $useNewWord = $correct; #set the new word to whatever correct is - this is BOOLEAN - true or false -  if they get it correct, $useNewWord will be true which prompts the SET THE WORD code to pick new word, otherwise got to ELSE and set the word to whatever the word is. This is also the same as 'if ($corretc) { $useNewWord = true;} else {$useNewWord = false;}
 
 
     # Clear the results so if they refresh or come back they’re not seeing old results
@@ -41,9 +41,9 @@ if (isset($_SESSION['results'])) {
 }
 
 # Set the word
-if ($useNewWord) {
-    # Prevent using the same word that was used last time
-    while (!isset($word) or $word == $lastWord) {  # this means "while the word is not yet set" !isset($word) - without it you have an error because the wrod doesn't exist yet.  It is common to do this when you want to pick a value that doesn't equal an existing value.
+if ($useNewWord) { # This is also the same as 'if ($correct) { $useNewWord = true;}
+    # Prevent using the same word that was used last time:
+    while (!isset($word) or $word == $lastWord) {  # this means "while the word is not yet set" !isset($word) - without it you have an error because the word doesn't exist yet.  It is common to do this when you want to pick a value that doesn't equal an existing value.
         $word = array_rand($words);
     }
 } else {  #not picking a new word - got it incorrect -keep the same wod and on line 53, set it in the session
