@@ -45,35 +45,59 @@ The function should be called vowelCount
 It should accept 1 parameter, $word
 It should return an integer value (the vowel count) */
 
-
-function checkNumber($guess, $mysteryNumber)
-{
-    if ($guess == $mysteryNumber) {
-        return 'correct';
-    } elseif ($guess > $mysteryNumber) {
-        return 'high';
-    } else {
-        return 'low';
-    }
+#get a wprd
+function vowelCount($word){
+#break it into characters 
+    lttr = str_split($word);
+    $vowelCount = 0;
 }
-
-// var_dump(checkNumber(3, 6)); # low
-// var_dump(checkNumber(7, 3)); # high
-var_dump(checkNumber(3, 3)); # correct
-
-
-
-foreach($cards as $key => $number) {
-    if ($key % 2 == 0);
-   // echo 'used https://www.geeksforgeeks.org/php-check-number-even-odd/' - then saw it in e2 notes!;
-       $playerCards[] = array_shift($cards); 
-       if ($key % 2 != 0);
-       $computerCards [] = array_shift($cards);
-    if($key >= 4) {
-       break;
+#you can loop through that array 
+foreach($lttr as $indLtr) {
+# look at each character in the string
+    if (in_array($indLtr, [a, e, i, o, u]);
+//  increment some counter whenever one of the characters is a vowel.
+       $vowelCount++;
    } 
-}
-
+return $vowelCount;
 
 
 require 'index-view.php';
+
+/*Create a class called Person.
+
+This class should have 3 public properties:
+
+A string firstName
+A string lastName
+An int age
+Constructor
+
+The constructor of this class should accept 3 parameters: firstName, lastName, age. It should use these parameters to set the corresponding class properties, e.g.:
+
+$this->firstName = $firstName;*/
+
+
+class Person 
+{
+    # Properties
+    public $person = [$firstName, $lastname, $age];  
+
+    # Methods
+    public function __construct($firstName, $lastname, $age) {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->age = $age;
+    }
+    }
+
+        return $results;
+
+
+# this is a file for a class instead of defining it within the folder
+# name of file is the same as name of class 
+# there shouldn't be anythig other than the code for class in the file except some debugging
+
+#jasn JAVASCRIPT OBJECT NOTATON - parsable text
+# the object is denoted by the start and end of the curly bracket 
+
+# "1" "2" are KEYS pointingto values with a COLON : and inside that are more KEY:VALUE  pairs  - see products.json
