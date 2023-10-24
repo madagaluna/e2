@@ -96,9 +96,8 @@ class Person
         return $this -> firstName . "" . $this->lastName;
      }
 
-
      public function getClassification () 
-    }   if ($this-> age > 18) ? 'adult' ; 'minor';
+    {  return ($this-> age > 18) ? 'adult' : 'minor';
     }
 
 
