@@ -80,7 +80,7 @@ $this->firstName = $firstName;*/
 
 
 class Person 
-{
+
     # Properties
     public $person;
     public $firstName;
