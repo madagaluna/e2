@@ -79,26 +79,30 @@ $this->firstName = $firstName;*/
 
 
 
-class Person 
-
+class Person
+{
     # Properties
     public $person;
     public $firstName;
-    public $age;  
+    public $age;
 
-      # Methods  
-    public function __construct($firstName, $lastname, $age) {
-    $this->firstName = $firstName;
-    $this->lastName = $lastName;
-    $this->age = $age;
-}
-     public function getFullName() {
-        return $this -> firstName . "" . $this->lastName;
-     }
-
-     public function getClassification () 
-    {  return ($this-> age > 18) ? 'adult' : 'minor';
+    # Methods
+    public function __construct($firstName, $lastname, $age)
+    {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->age = $age;
     }
+    public function getFullName()
+    {
+        return $this -> firstName . "" . $this->lastName;
+    }
+
+    public function getClassification()
+    {
+        return ($this-> age > 18) ? 'adult' : 'minor';
+    }
+}
 
 
  /*   The class should have a public method called getFullName that accepts 0
