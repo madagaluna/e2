@@ -98,10 +98,7 @@ class Person
 
 
      public function getClassification () 
-    }   if ($this-> age > 18) {
-        return "adult";
-     } else { 
-        return "minor";
+    }   if ($this-> age > 18) ? 'adult' ; 'minor';
     }
 
 
