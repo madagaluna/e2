@@ -50,7 +50,7 @@ function vowelCount($word){
 #break it into characters 
     lttr = str_split($word);
     $vowelCount = 0;
-}
+
 #you can loop through that array 
 foreach($lttr as $indLtr) {
 # look at each character in the string
@@ -59,6 +59,7 @@ foreach($lttr as $indLtr) {
        $vowelCount++;
    } 
 return $vowelCount;
+}
 
 
 require 'index-view.php';
@@ -80,7 +81,9 @@ $this->firstName = $firstName;*/
 class Person 
 {
     # Properties
-    public $person = [$firstName, $lastname, $age];  
+    public $person;
+    public $firstName;
+    public $age;  
 
     # Methods
     public function __construct($firstName, $lastname, $age) {
@@ -89,7 +92,6 @@ class Person
         $this->age = $age;
     }
     }
-
         return $results;
 
 
