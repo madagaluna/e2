@@ -48,7 +48,7 @@ It should return an integer value (the vowel count) */
 #get a wprd
 function vowelCount($word){
 #break it into characters 
-    lttr = str_split($word);
+    $lttr = str_split($word);
     $vowelCount = 0;
 
 #you can loop through that array 
