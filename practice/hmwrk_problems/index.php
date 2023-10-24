@@ -78,6 +78,7 @@ The constructor of this class should accept 3 parameters: firstName, lastName, a
 $this->firstName = $firstName;*/
 
 
+
 class Person 
 {
     # Properties
@@ -85,13 +86,31 @@ class Person
     public $firstName;
     public $age;  
 
-    # Methods
+      # Methods  
     public function __construct($firstName, $lastname, $age) {
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
-        $this->age = $age;
+    $this->firstName = $firstName;
+    $this->lastName = $lastName;
+    $this->age = $age;
+}
+     public function getFullName() {
+        return $this -> firstName . "" . $this->lastName;
+     }
+
+
+     public function getClassification () 
+    }   if ($this-> age > 18) {
+        return "adult";
+     } else { 
+        return "minor";
     }
-    }
+
+
+    The class should have a public method called getFullName that accepts 0
+parameters and returns a string of text that concatenates the firstName and
+lastName properties with a space in between.
+This class should have another public method called getClassification that
+returns a string of "adult" if the person's age is >= 18 or "minor" if the person's age
+is < 18.
         return $results;
 
 
