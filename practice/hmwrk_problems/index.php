@@ -101,13 +101,12 @@ class Person
     }
 
 
-    The class should have a public method called getFullName that accepts 0
+ /*   The class should have a public method called getFullName that accepts 0
 parameters and returns a string of text that concatenates the firstName and
 lastName properties with a space in between.
 This class should have another public method called getClassification that
 returns a string of "adult" if the person's age is >= 18 or "minor" if the person's age
-is < 18.
-        return $results;
+is < 18.*/
 
 
 # this is a file for a class instead of defining it within the folder
