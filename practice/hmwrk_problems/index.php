@@ -56,15 +56,14 @@ function vowelCount($word)
     #you can loop through that array
     foreach (str_split($word) as $character) {
         # look at each character in the string
-        if(in_array($character, ['a', 'e', 'i', 'o', 'u'])){
+        if(in_array($character, ['a', 'e', 'i', 'o', 'u'])){  /*if character is in array */ 
         //  increment some counter whenever one of the characters is a vowel.
         $Count++;
     }
-    return $Count;
+    return $Count; /*return after */ 
 }
 
-
-require 'index-view.php';
+/* explanation of vowelCount: str_split takes string and conversts to string, 
 
 /*Create a class called Person.
 
