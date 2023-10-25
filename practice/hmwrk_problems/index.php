@@ -51,16 +51,16 @@ It should return an integer value (the vowel count) */
 #get a wprd
 function vowelCount($word)
 {
-    $vowelCount = 0;
+    $Count = 0;
 
     #you can loop through that array
-    foreach(str_split($word) as $character) {
+    foreach (str_split($word) as $character) {
         # look at each character in the string
-        if (in_array($character [a, e, i, o, u]));
+        if(in_array($character, ['a', 'e', 'i', 'o', 'u'])){
         //  increment some counter whenever one of the characters is a vowel.
-        $vowelCount++;
+        $Count++;
     }
-    return $vowelCount;
+    return $Count;
 }
 
 
