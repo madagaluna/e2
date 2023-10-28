@@ -12,9 +12,9 @@
     <h2> Project 2 - Rock and Roll </h2>
 
     <form method='POST' action='process.php'>
-        <input type='radio' id='1pm' name='perform_ time' value='1pm'><label for='1pm'>1pm</label>
-        <input type='radio' id='2pm' name='perform_ time' value='2pm'><label for='2pm'>2pm</label>
-        <input type='radio' id='3pm' name='perform_ time' value='3pm'><label for='3pm'>3pm</label>
+        <input type='radio' id='1pm' name='perform_time' value='1pm'><label for='1pm'>1pm</label>
+        <input type='radio' id='2pm' name='perform_time' value='2pm'><label for='2pm'>2pm</label>
+        <input type='radio' id='3pm' name='perform_time' value='3pm'><label for='3pm'>3pm</label>
 
 
         <?php echo (!isset($choice) or $choice == 'heads') ? 'checked' : ''; ?>>

@@ -3,15 +3,19 @@
 
 session_start();  // the data has to be available when user is redirected back - create the
 var_dump($_POST);
-$choice = $_POST['choice'];  //variable named choice to and extract choice data
+$perform_time = $_POST['perform_time'];  
+$openTime = availableTimes()
+
+if($perform_time == $openTime){
+    return $performerA_time != $perform_time;
+}
 
 
 
 
-
-function availabletimes($performerA_time, $performerB_time)
+function availableTimes($performerA_time, $performerB_time)
 {
-    return $performerA_time != $performerB_time;
+    return $performerA_time != $perform_time;
     $results = [];
 }
 //$flip = flipcoin(); // return heads or tails
