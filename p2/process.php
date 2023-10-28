@@ -5,18 +5,27 @@ session_start();  // the data has to be available when user is redirected back -
 var_dump($_POST);
 $choice = $_POST['choice'];  //variable named choice to and extract choice data
 
-//$flip = flipcoin(); // return heads or tails
-$flip = ['heads', 'tails'][rand(0, 1)]; //got rid of fx and calling ^ fx cuz it was overkill
 
-$winner = $choice == $flip; // ternary'd 15 minutes on wk 8 pt 2
+
+
+
+function availabletimes($performerA_time, $performerB_time)
+{
+    return $performerA_time != $performerB_time;
+    $results = [];
+}
+//$flip = flipcoin(); // return heads or tails
+//$flip = ['heads', 'tails'][rand(0, 1)]; //got rid of fx and calling ^ fx cuz it was overkill
+
+//$winner = $choice == $flip; // ternary'd 15 minutes on wk 8 pt 2
 //access superglobal, create key -results - and set it to an arry of results of winner, flip and choice
-$_SESSION['results'] = [  // the index page extracts this info
-    'winner' => $winner,
-    'flip' => $flip,
-    'choice' => $choice,
-];
+//$_SESSION['results'] = [  // the index page extracts this info
+//    'winner' => $winner,
+//    'flip' => $flip,
+//   'choice' => $choice,
+//];
 // redirect user back to index page - use header, string name of the file to direct back to
-header('location: index.php');
+//header('location: index.php');
 
 
 //function flipCoin()
@@ -25,9 +34,9 @@ header('location: index.php');
 //    return $coin[rand(0, 1)];
 //}
 
-var_dump($choice);
-var_dump($flip);
-var_dump($winner);
+//var_dump($choice);
+//var_dump($flip);
+//var_dump($winner);
 
 // send user back to the form, passing along the results
 
