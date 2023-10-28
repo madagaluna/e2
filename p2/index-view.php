@@ -22,9 +22,9 @@
             <?php echo (!isset($choice) or $choice == 'heads') ? 'checked' : ''; ?>>
         <label for='perform-time'>Enter a time (1,2, or 3):</label>
         <button type='submit'>Submit</button>
-        `
+
     </form>
-    <!-- see if you have results using isset -->
+
     <?php if (isset($results)) { ?>
 
 
