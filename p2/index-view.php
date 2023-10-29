@@ -24,7 +24,7 @@
 
         <button type='submit'>Submit</button>
     </form>
-    <?php if(isset($_SESSION['results'])) { ?>
+    <?php if(isset($results)) { ?>
     <h2>Results</h2>
     The Foos are performing at <?php echo $taken ?>!
 
