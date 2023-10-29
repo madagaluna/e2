@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Project 2 Rock & Roll</title>
+    <title>Project Rock & Roll</title>
     <link href=data , rel=icon>
 </head>
 
 <body>
-    <h2>Project 2 - Rock & Roll</h2>
+    <h2>Project - Rock & Roll</h2>
 
     <form method="POST" action="process.php">
         <label for='perform-time'>Enter a time (1, 2, 3):</label>
@@ -25,8 +25,17 @@
         <button type='submit'>Submit</button>
     </form>
 
-
-
+    <?php if (isset($results)) { ?>
+    <h2> RESULTS </h2>
+    <?php foreach ($results as $result) { ?>
+    <p>
+        <?php foreach ($result as $key => $value) { ?>
+        <?php echo $key . ': ' . $value; ?>
+        <br>
+        <?php } ?>
+    </p>
+    <?php } ?>
+    <?php } ?>
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 
 # Project 2
 + By: Mary Bradley
-+ URL: <http://e2p2.timberthedestroyer.xyz>
++ URL: <http://e2p2.yourdomain.com>
 
 ## Outside resources
 *your list of outside resources go here*
