@@ -7,15 +7,14 @@ $perform_time = $_POST['perform_time'];
 $schedule = [];
 
 $performer_A = rand(1, 3);
-schedule[] = ($performer_A != $perform_time) ?
-    "The Bar's will perform at" echo $performer_A : "That time is taken.  Please choose another time.";
-    $schedule[] = "The Bars will perform at $perform_time";
+$schedule[] = ($performer_A != $perform_time) ?
+    "The Bar's will perform at" : "That time is taken.  Please choose another time.";
+$schedule[] = "The Bars will perform at $perform_time";
 
-    // else update schedule that The Bars will not be performing
-} else {
+$schedule[] = "Wah-Wah is not just a pedal. The Bars will not be a performing today.";
 
-    $schedule[] = "Wah-Wah is not just a pedal. The Bars will not be a performing today.";
-}
+require 'index-view.php';
+?>
 
 
 
@@ -28,10 +27,10 @@ schedule[] = ($performer_A != $perform_time) ?
 
 //$winner = $choice == $flip; // ternary'd 15 minutes on wk 8 pt 2
 //access superglobal, create key -results - and set it to an arry of results of winner, flip and choice
-//$_SESSION['results'] = [  // the index page extracts this info
-//    'winner' => $winner,
-//    'flip' => $flip,
-//   'choice' => $choice,
+//$_SESSION['results'] = [ // the index page extracts this info
+// 'winner' => $winner,
+// 'flip' => $flip,
+// 'choice' => $choice,
 //];
 // redirect user back to index page - use header, string name of the file to direct back to
 //header('location: index.php');
@@ -39,8 +38,8 @@ schedule[] = ($performer_A != $perform_time) ?
 
 //function flipCoin()
 //{
-//    $coin = ['heads', 'tails'];
-//    return $coin[rand(0, 1)];
+// $coin = ['heads', 'tails'];
+// return $coin[rand(0, 1)];
 //}
 
 //var_dump($choice);
@@ -62,16 +61,16 @@ $answer = $_POST['answer'];
 $haveAnswer = true;
 
 if ($answer == '') {
-    $haveAnswer = false;
+$haveAnswer = false;
 } elseif ($answer == 'pumpkin') {
-    $correct = true;
+$correct = true;
 } else {
-    $correct = false;
+$correct = false;
 }
 
 $_SESSION['results'] = [
-    'haveAnswer' => $haveAnswer,
-    'correct' => $correct
+'haveAnswer' => $haveAnswer,
+'correct' => $correct
 ];
 
 header('Location: index.php');*/
