@@ -18,3 +18,9 @@ if(isset($_SESSION['results'])) {
 
 
 require "index-view.php";
+
+//$_SESSION['perform_time'] = [ // the index page extracts this info
+// 'Schedule' => $schedule,
+// 'Foos' => $performer_A,
+// 'Bars' => $perform_time,
+//];

@@ -18,7 +18,7 @@
         <input type='radio' id='3pm' name='perform_time' value='3pm'><label for='3pm'>3pm</label>
 
 
-        <?php echo (!isset($choice) or $choice == 'heads') ? 'checked' : ''; ?>
+        <!--<?php echo (!isset($choice) or $choice == 'heads') ? 'checked' : ''; ?>-->
 
 
         <button type='submit'>Submit</button>
@@ -32,7 +32,7 @@
     <!--  use variables from the index.php to output data-->
     <h2> RESULTS </h2>
 
-    The coin landed on <?php echo $flip; ?>
+    The foos are playing at <?php echo $performer_A; ?>
 
     <?php if($winner) { ?>
     YOU WON THE COIN TOSS!

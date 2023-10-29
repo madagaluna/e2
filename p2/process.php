@@ -7,11 +7,19 @@ $perform_time = $_POST['perform_time'];
 $schedule = [];
 
 $performer_A = rand(1, 3);
-$schedule[] = ($performer_A != $perform_time) ?
-    "The Bar's will perform at" : "That time is taken.  Please choose another time.";
-$schedule[] = "The Bars will perform at $perform_time";
+if ($performer_A != $perform_time) {
+    $schedule[] = $performer_A . "PM";
+    $schedule[] = $perform_time;
+} else {
+    $schedule[] = "The Foos are playing at ." . $performer_A . "PM Please choose another time.";
+}
 
-$schedule[] = "Wah-Wah is not just a pedal. The Bars will not be a performing today.";
+
+//$_SESSION['perform_time'] = [ // the index page extracts this info
+// 'Schedule' => $schedule,
+// 'Foos' => $performer_A,
+// 'Bars' => $perform_time,
+//];
 
 require 'index-view.php';
 ?>
