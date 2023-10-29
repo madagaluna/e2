@@ -12,7 +12,8 @@ $_SESSION['results'] = [
     'selected_time' => $perform_time,
     'taken_time' => $taken,
     'available_time' => $avail,
+
 ];
-var_dump($avail);
+
 
 header('Location: index.php');

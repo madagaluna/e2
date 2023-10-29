@@ -24,9 +24,17 @@
 
         <button type='submit'>Submit</button>
     </form>
+    <?php if(isset($_SESSION['results'])) { ?>
     <h2>Results</h2>
-    
+    <?php if($avail) { ?>
 
+    Get ready to Rock!
+
+    <?php } else { ?>
+    Sorry, Choose another time
+    <?php } ?>
+
+    <?php } ?>
 
 
 </body>
