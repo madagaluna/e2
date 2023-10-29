@@ -2,15 +2,14 @@
 
 session_start();  // the data has to be available when user is redirected back - create the
 //var_dump($_POST);
-$performer_A = rand(1, 3);
+
 $perform_time = $_POST['perform_time'];
 $schedule = [];
 
-
-if ($performer_A != $perform_time) {
-    $schedule[] = "The Foo's Time";
-    $schedule[] = "The Bar's Time";
-    $schedule[] = [];
+$performer_A = rand(1, 3);
+schedule[] = ($performer_A != $perform_time) ?
+    "The Bar's will perform at" echo $performer_A : "That time is taken.  Please choose another time.";
+    $schedule[] = "The Bars will perform at $perform_time";
 
     // else update schedule that The Bars will not be performing
 } else {
