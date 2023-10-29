@@ -11,8 +11,6 @@
     <h2>Project 2 - Rock & Roll</h2>
 
     <form method="POST" action="process.php">
-        <label for='band_name'><strong>Enter Your Band Name:</strong></label> <input type='text' id='band_name'
-            name='band_name'><br><br>
         <label for='perform_time'>Enter a time to Perform!<br> If the Foo's are not playing at the time you choose,
             that
             time is all yours
@@ -36,7 +34,7 @@
 
     <?php if($avail) { ?>
 
-    The <?php echo $band_name?> are performing at <?php echo $perform_time ?>. Get ready to Rock!
+    You are performing at <?php echo $perform_time ?>. Get ready to Rock!
 
     <?php } else { ?>
     Choose another time

@@ -2,7 +2,6 @@
 
 session_start();
 
-$band_name = $_POST['band_name'] ?? '';
 $perform_time = $_POST['perform_time'];
 $taken = ['1pm','2pm','3pm'][rand(0, 2)];
 $avail = $perform_time != $taken;
