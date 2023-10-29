@@ -11,7 +11,9 @@
     <h2>Project 2 - Rock & Roll</h2>
 
     <form method="POST" action="process.php">
-        <label for='perform-time'>Enter a time (1, 2, 3):</label>
+        <label for='perform-time'>Enter a time to Perform!<br> If the Foo's are not playing at the time you choose, that
+            time is all yours
+            <br><br> BE WARNED, The Foos won't keep the same time until you have a final time:</label><br><br><br><br>
         <input type='radio' id='1pm' name='perform_time' value="1pm"
             <?php echo (isset($perform_time) && $perform_time == '1pm') ? 'checked' : ''; ?>><label
             for='1pm'>1pm</label>
