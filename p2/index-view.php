@@ -24,6 +24,8 @@
 
         <button type='submit'>Submit</button>
     </form>
+    <h2>Results</h2>
+    
 
 
 
