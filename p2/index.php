@@ -1,13 +1,15 @@
 <?php
 
-//session_start();
-//
-// //if (isset($_SESSION['results'])) {
-//     $results = $_SESSION['results'];
-//     $schedule = $results['schedule'];
-//     $foos = $results['performer_A'];
-//     $bars = $results($perform_time)
-// ]
+session_start();
+if(isset($_SESSION['results'])) {
 
-// $_SESSION['results'] = null;
+    //     // //if (isset($_SESSION['results'])) {
+
+    $results = $_SESSION['results'];
+    $perform_time = $results['selected_time'];
+    $taken = $results['taken_time'];
+    $avail = $results('available_time');
+}
+
+// // $_SESSION['results'] = null;
 require "index-view.php";
