@@ -25,9 +25,9 @@ header('location: index.php');
 //    return $coin[rand(0, 1)];
 //}
 
-var_dump($choice);
-var_dump($flip);
-var_dump($winner);
+//var_dump($choice);
+//var_dump($flip);
+// var_dump($winner);
 
 // send user back to the form, passing along the results
 
