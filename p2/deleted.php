@@ -16,23 +16,7 @@ from index.php//session_start();
 
 from Process.php
 
-// session_start();
 
-// if (isset($_POST['perform_time'])) {
-//     $perform_time = $_POST['perform_time'];
-//     $schedule = [];
-//     $performer_A = (isset($_SESSION['performer_A'])) ? $_SESSION ['performer_A'] : rand(1, 3);
-
-//     if ($performer_A != $perform_time) {
-//         $schedule[] = [
-//             'The Foos' => "The Foos are playing at " . $performer_A . " PM.",
-//             'The Bars' => "The Bars are playing at " . $perform_time . ".",
-//         ];
-//     } else {
-//         $schedule[] = "The Foos are playing at " . $performer_A . " PM. Please choose another time.";
-//     }
-
-//     $_SESSION['results'] = $schedule;
 
 //     header('Location: index.php');
 // }
