@@ -2,7 +2,7 @@
 
 $perform_time = $_POST['perform_time'];
 
-$taken = taken_time();
+$taken = ['1pm','2pm','3pm'][rand(0, 2)];
 $avail = $perform_time != $taken;
 
 var_dump($perform_time);
@@ -10,11 +10,11 @@ var_dump($taken);
 var_dump($avail);
 
 
-function taken_time()
-{
-    $times = ['1pm','2pm','3pm'];
-    return $times[rand(0, count($times))];
-}
+// function taken_time()
+// {
+//     $times = ['1pm','2pm','3pm'];
+//     return $times)];
+// }
 // if($perform_time != $taken) {
 //     $avail = true;
 // } else {
