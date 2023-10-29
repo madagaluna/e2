@@ -26,12 +26,14 @@
     </form>
     <?php if(isset($_SESSION['results'])) { ?>
     <h2>Results</h2>
+    The Foos are performing at <?php echo $taken ?>!
+
     <?php if($avail) { ?>
 
-    Get ready to Rock!
+    See you at <?php echo $perform_time ?>. Get ready to Rock!
 
     <?php } else { ?>
-    Sorry, Choose another time
+    Choose another time
     <?php } ?>
 
     <?php } ?>

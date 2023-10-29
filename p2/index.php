@@ -10,10 +10,8 @@ if(isset($_SESSION['results'])) {
     $taken = $results['taken_time'];
     $avail = $results['available_time'];
 
+    $_SESSION['result'] = null;
 
-    var_dump($taken);
-    var_dump($avail);
-    var_dump($perform_time);
 }
 
 // // $_SESSION['results'] = null;
