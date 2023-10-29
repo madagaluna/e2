@@ -1,11 +1,10 @@
-*Any instructions/notes in italics should be removed from the template before submitting* 
 
 # Project 2
 + By: Mary Bradley
 + URL: <http://e2p2.yourdomain.com>
 
 ## Outside resources
-*your list of outside resources go here*
+
 
 ## Notes for instructor
-*any notes for me to refer to while grading; if none, omit this section*
+I spent lots of time on the video and looking at the notes.  Starting from scratch was gamechanging - yes, I heard you say that, but ....  There's no such thing as a shortcut in my codeworld, yet!
