@@ -5,7 +5,7 @@ session_start();
 if(isset($_SESSION['results'])) {
     // accesing the session results 3 times so turn the sessionresults into a variable $results instead of a $SESSION['results']
     $results = $_SESSION['results'];
-    $winner = $results['winner'];
+    $schedule = $results['schedule'];
     $flip = $results['flip'];
     $choice = $results['choice'];
     //  var_dump($winner);
