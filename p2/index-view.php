@@ -12,13 +12,14 @@
     <h2> Project 2 - Rock and Roll </h2>
 
     <form method='POST' action='process.php'>
+        <label for='perform-time'>Enter a time (1,2, or 3):</label>
         <input type='radio' id='1pm' name='perform_time' value='1pm'><label for='1pm'>1pm</label>
         <input type='radio' id='2pm' name='perform_time' value='2pm'><label for='2pm'>2pm</label>
         <input type='radio' id='3pm' name='perform_time' value='3pm'><label for='3pm'>3pm</label>
 
 
-        <?php echo (!isset($choice) or $choice == 'heads') ? 'checked' : ''; ?>>
-        <label for='perform-time'>Enter a time (1,2, or 3):</label>
+        <?php echo (!isset($choice) or $choice == 'heads') ? 'checked' : ''; ?>
+
 
         <button type='submit'>Submit</button>
 

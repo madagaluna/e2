@@ -1,23 +1,29 @@
 <?php
 
-
 session_start();  // the data has to be available when user is redirected back - create the
-var_dump($_POST);
-$perform_time = $_POST['perform_time'];  
-$openTime = availableTimes()
+//var_dump($_POST);
+$performer_A = rand(1, 3);
+$perform_time = $_POST['perform_time'];
+$schedule = [];
 
-if($perform_time == $openTime){
-    return $performerA_time != $perform_time;
+
+if ($performer_A != $perform_time) {
+    $schedule[] = "The Foo's Time";
+    $schedule[] = "The Bar's Time";
+    $schedule[] = [];
+
+    // else update schedule that The Bars will not be performing
+} else {
+
+    $schedule[] = "Wah-Wah is not just a pedal. The Bars will not be a performing today.";
 }
 
 
 
 
-function availableTimes($performerA_time, $performerB_time)
-{
-    return $performerA_time != $perform_time;
-    $results = [];
-}
+
+
+
 //$flip = flipcoin(); // return heads or tails
 //$flip = ['heads', 'tails'][rand(0, 1)]; //got rid of fx and calling ^ fx cuz it was overkill
 
