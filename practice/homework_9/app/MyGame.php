@@ -2,7 +2,7 @@
 
 namespace RPS;
 
-//use RPS\Game;  // Susam has this ... also she had MyGame in Class folder (app)
+use RPS\Game;  // Susam has this ... also she had MyGame in Class folder (app)
 
 class MyGame extends Game
 {

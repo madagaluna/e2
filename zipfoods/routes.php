@@ -13,4 +13,5 @@ return [
     # Ex: The path `/` will trigger the `index` method within the `AppController`
     '/' => ['AppController', 'index'],
     '/contact' => ['AppController', 'contact'],
+     '/about' => ['AppController', 'about']  //hmwrk
 ];

@@ -35,8 +35,9 @@ class AppController extends Controller
     {
         $welcomes = ['Welcome', 'Aloha', 'Welkom', 'Bienvenidos', 'Bienvenu', 'Welkomma'];
 
-        return $this->app->view('index', [
-            'welcome' => $welcomes[array_rand($welcomes)]
+        return $this->app->view('index', [   //returns the view
+            'welcome' => $welcomes[array_rand($welcomes)],
+            'time' => date('g:ia')
         ]);
     }
 
@@ -46,5 +47,15 @@ class AppController extends Controller
         return $this->app->view('contact', [
             'email' => 'support@zipfoods.com'
         ]);
+    }
+
+    // HOMEWORK
+    public function about()
+    {
+        return $this->app->view(
+            'about',
+            ['about' => 'About'
+            ]
+        );
     }
 }
