@@ -33,14 +33,9 @@ class AppController extends Controller
      */
     public function index()
     {
-        $welcomes = ['Welcome', 'Aloha', 'Welkom', 'Bienvenidos', 'Bienvenu', 'Welkomma'];
 
-        return $this->app->view('index', [   //returns the view
-            'welcome' => $welcomes[array_rand($welcomes)],
-            'time' => date('g:ia')
-        ]);
+        return $this->app->view('index');
     }
-
 
     public function contact()
     {

@@ -1,18 +1,16 @@
-<!doctype html>
-<html lang='en'>
+@extends('templates/master')
 
-<head>
+@section('title')
+404 Page Not Found
+@endsection
 
-    <title>404 Page Not Found ... wth???</title>
-    <meta charset='utf-8'>
+@section('content')
 
-</head>
+<h2>PRODUCT NOT FOUND</h2>
 
-<body>
 
-    <h2>404 Page Not Found...wth</h2>
-    <a href='{{ $app->config('app.url') }}'>{{ $app->config('app.url') }}</a>
+<p>
+    <a href='/products'>Check out our selection of products...</a>
+</p>
 
-</body>
-
-</html>
+@endsection

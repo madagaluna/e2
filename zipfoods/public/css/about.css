@@ -1,0 +1,8 @@
+/*body {
+    background-color: yellow;
+    /* indvidual style sheet , the master sheet has the option to yield in the head  - fyi -  so on the relevant blade page (about in this case) create an @section - head - amd lionk to this stylesheet  :  
+    @section('head')
+<link href='/css/about.css' rel='stylesheet'>
+@endsection
+
+}*/
