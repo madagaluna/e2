@@ -88,3 +88,13 @@ public function index()
             'time' => date('g:ia')
         ]);
     }
+
+from products index.blade:
+
+    <div id='product-index'>
+    @foreach ($products as $product)
+    <a class='product-link' href='/product?sku={{ $product['sku'] }}'>
+        {{-- This is how to append unique sku via key-value pair for each product and link to its own page via the query string - this is visible in view source--}}
+        {{-- you can add multiple key-value pairs using the ampersand: e.g. &category = xyz'-}}
+        {{-- create SHOW method on productsConstroller page}}
+        <div>

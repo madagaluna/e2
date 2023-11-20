@@ -6,7 +6,7 @@ class Products
 {
     # Properties
 
-    public $products = [];  //public on the video, private in the notes
+    private $products = [];  //public on the video, private in the notes
 
     # Methods  // create a new instance in the ProductsController that calls this method  - pass it the path to the products.json file ($dataSource)
     public function __construct($dataSource)

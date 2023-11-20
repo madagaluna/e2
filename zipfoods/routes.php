@@ -15,4 +15,5 @@ return [
     '/contact' => ['AppController', 'contact'],
      '/about' => ['AppController', 'about'],  //hmwrk - which controller and what method. then go to appcontroller
      '/products' => ['ProductsController', 'index'],
+     '/product' => ['ProductsController', 'show'], //singular to distinguish from all products page
 ];
