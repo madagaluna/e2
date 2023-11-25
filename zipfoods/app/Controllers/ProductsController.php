@@ -45,7 +45,7 @@ class ProductsController extends Controller
         // EDGE CASE FOR 404 ERROR PAGE
 
         if(is_null($product)) {
-            return $this->app->view('errors/404');
+            return $this->app->view('products/missing');
 
         }
 
