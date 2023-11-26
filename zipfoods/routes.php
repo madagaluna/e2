@@ -16,4 +16,5 @@ return [
      '/about' => ['AppController', 'about'],  //hmwrk - which controller and what method. then go to appcontroller
      '/products' => ['ProductsController', 'index'],
      '/product' => ['ProductsController', 'show'], //singular to distinguish from all products page
+     '/products/save-review' => ['ProductsController', 'saveReview'], //create saveReview in ProductsController next.  aside:  Naming conventions url use dash for more than one word for search engine opt.  Method name: camelCase just for consistency here
 ];
