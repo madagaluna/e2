@@ -127,19 +127,29 @@ class AppController extends Controller
         //EXAMPLE #3 -adds two rows at atime
         //best to use this: security; data is coming from visitors - they can put SQL in and destroy the database so use this!!
         // is optimal
-        $sqlTemplate = "INSERT INTO products (name, sku, description, price, available, weight, perishable) 
-        VALUES (:name, :sku, :description, :price, :available, :weight, :perishable)";
+        //$sqlTemplate = "INSERT INTO products (name, sku, description, price, available, weight, perishable)
+        // VALUES (:name, :sku, :description, :price, :available, :weight, :perishable)";
 
-        $values = [
-        'name' => 'Driscoll’s Strawberries',
-        'sku' => 'driscolls-strawberries',
-        'description' => 'Driscoll’s Strawberries are consistently the best, sweetest, juiciest strawberries available. This size is the best selling, as it is both convenient for completing a cherished family recipes and for preparing a quick snack straight from the fridge.',
-        'sku' => 'driscolls-strawberries',
-        'price' => 4.99,
-        'available' => 0,
-        'weight' => 1,
-        'perishable' => 1,
-        ];
+        //$values = [
+        //'name' => 'Driscoll’s Strawberries',
+        //'sku' => 'driscolls-strawberries',
+        // 'description' => 'Driscoll’s Strawberries are consistently the best, sweetest, juiciest strawberries available. This size is the best selling, as it is both convenient for completing a cherished family recipes and for preparing a quick snack straight from the fridge.',
+        // 'sku' => 'driscolls-strawberries',
+        // 'price' => 4.99,
+        // 'available' => 0,
+        // 'weight' => 1,
+        // 'perishable' => 1,
+
+
+        $sqlTemplate = "INSERT INTO reviews (name, sku, review) 
+        VALUES (:name, :sku, :review)";
+
+        $VALUES = [
+            'name' => 'Jill User',
+            'sku' => 'driscolls-strawberries',
+            'review' => 'Delicious and fresh! Would order again.',
+
+    ];
 
         $statement = $pdo->prepare($sqlTemplate);
         $statement->execute($values);
