@@ -68,7 +68,22 @@ class ProductsController extends Controller
 
     public function saveReview()
     {
+        $this->app->validate([
+          //  'id' => 'required',
+            'sku' => 'required',
+            'name' => 'required', # Note how multiple validation rules are separated by a |
+
+            'review' => 'required|minLength:200' # Note that some rules accept paramaters, which follow a :
+        ]);
+
+        // if the above validation checks fail
+        // the user is redirected back to where they came from (/product)
+        // none of the code that follows will be executed
+
+
+
         // return'Save Review ...';  //collect form data and persist it to database (in past used superglobals $__GET/ e.g. dump($__POST['sku'])) but here we are using a method from the framework - using the INPUT method e.g. dump($this->app->input('sku'));  allows to provide default values as a second parameter ('sku', []) ... now set variables
+        //  $id = ($this->app->input('id'));  // I'm not certain - it was added to the table as a PK, keep it hidden on show blade - wasn't part of assignment so no...??
         $sku = ($this->app->input('sku'));
         $name = ($this->app->input('name'));
         $review = ($this->app->input('review'));
@@ -76,7 +91,12 @@ class ProductsController extends Controller
 
         # todo: persist review to the database ...
 
-        return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' => true]);    //  sends back to individual product page by invocate back to product, specify sku, get from hidden variable - include data to show that the review was accepted  FLASH - - shows for one page request
+       
+
+        // from class
+        // return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' => true]);    //  sends back to individual product page by invocate back to product, specify sku, get from hidden variable - include data to show that the review was accepted  FLASH - - shows for one page request
+
+        return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' => true]);
     }
 
 }

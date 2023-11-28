@@ -10,6 +10,11 @@
         <!-- using bootstrap method class alert and alert success -->
     @endif
 
+    <!-- to put the error message at the top of the page -->
+    @if ($app->errorsExist())
+        <div class = 'alert alert-danger'>Please correct the errors below</div>
+    @endif
+
 
 
     <div id='product-show'>
@@ -31,18 +36,28 @@
         <!-- stores hidden content, allows the sku to be injected into input -->
         <div class='form-group'>
             <label for='name'>Name</label>
-            <input type='text' class='form-control' name='name' id='name'>
+            <input type='text' class='form-control' name='name' id='name' value='{{ $app->old('name') }}'>
+            <!-- the value is keeping values filled in the form from a failed submission as is >$app->old('review') in the text area below< -->
             <!-- name attribute IDENTIFIES input (line 30)  -->
         </div>
 
         <div class='form-group'>
             <label for='review'>Review</label>
-            <textarea name='review' id='review' class='form-control'></textarea> <!-- the names on the form are for sku, name (reviewer) amd review -->
+            <textarea name='review' id='review' class='form-control'>{{ $app->old('review') }}</textarea><!-- the names on the form are for sku, name (reviewer) amd review -->
+            (Min: 200 characters)
         </div>
 
         <button type='submit' class='btn btn-primary'>Submit Review</button>
         <!-- submites to action - defined in routes (next step)  -->
     </form>
+
+    @if ($app->errorsExist())
+        <ul class='error alert alert-danger'>
+            @foreach ($app->errors() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
 
     <a href='/products'>&larr; Return to all products</a>
 @endsection
