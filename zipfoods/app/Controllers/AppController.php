@@ -56,7 +56,7 @@ class AppController extends Controller
 
     # src/Controllers/AppController.php
 
-    public function practice()
+    public function saveReview()
     {
         # Set up all the variables we need to make a connection
         $host = $this->app->env('DB_HOST'); // where to find the database
@@ -98,6 +98,9 @@ class AppController extends Controller
 
        # Write a SQL query
         $sql = "SELECT * FROM reviews ORDER BY sku";
+
+        // $sql = "INSERT INTO reviews (name, sku, review)
+        // VALUES ('Bubba', "
 
         # Execute the statement, getting the result set as a PDOStatement object
         # https://www.php.net/manual/en/pdo.query.php
