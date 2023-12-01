@@ -9,15 +9,16 @@ class ProductsController extends Controller
     // public constructs are called for each new instance before methods
 
 
-    private $productsObj;
+    //   private $productsObj; no longer using productsObj because everything is coming from the database
 
     # Create a construct method to set up a productsObj property that can be used across different methods
-    public function __construct($app)
-    {
-        parent::__construct($app);
+    //   public function __construct($app)  no longer need this  because it only invokes the parent class and it's being over written
+    //   {
+    //       parent::__construct($app);
 
-        $this->productsObj = new Products($this->app->path('database/products.json'));
-    }
+    //  $this->productsObj = new Products($this->app->path('database/products.json')); //- used this when we were getting products from .json file
+
+    //   }
 
     public function index()
     {
@@ -25,7 +26,9 @@ class ProductsController extends Controller
         // $productsObj = new Products($this->app->path('/database/products.json'));
         //put it in a shared construct // get products object
         //dump($productsObj);
-        $products = $this->productsObj->getAll();
+        // $products = $this->productsObj->getAll();
+
+        $products = $this->app->db()->all('products');
 
         // dd($productsObj);
 
@@ -41,21 +44,28 @@ class ProductsController extends Controller
 
         // make sure the sku is not null - if it is, use redirect:
 
-        if(is_null($sku)) {
+        if (is_null($sku)) {
             $this->app->redirect('/products');
         }
 
 
-        $product = $this->productsObj->getBySku($sku);// get individual object
+        // $product = $this->productsObj->getBySku($sku);// get individual object
         // dump($product);
+
+        //switch to getting from db
+        $productQuery = $this->app->db()->findByColumn('products', 'sku', '=', $sku);
+
+
 
 
         // EDGE CASE FOR 404 ERROR PAGE
 
-        if(is_null($product)) {
+        if (empty($productQuery)) {
             return $this->app->view('products/missing');
-
+        } else {
+            $product = $productQuery[0]; //returns single element , assumes unique skus
         }
+        // dd($product);
 
         $reviewSaved = $this-> app->old('reviewSaved');  // using the framework method Old, looks for reviewSaved to FLASH (see redirect below) add this to the view (below)
 
@@ -89,7 +99,21 @@ class ProductsController extends Controller
         $review = ($this->app->input('review'));
 
 
-        # todo: persist review to the database ...
+        # todo: persist review to the database ...*/
+
+        $this ->app->db()->insert('reviews', [
+          'sku' => $sku,
+          'name' => $name,
+          'review' => $review
+        ]);
+
+
+
+
+
+
+
+        /*
         # Set up all the variables we need to make a connection
         $host = $this->app->env('DB_HOST'); // where to find the database
         $database = $this->app->env('DB_NAME'); // make sure this is updated in the env file to the name of the database (FINAL PROJECT ALERT!!)
@@ -123,7 +147,7 @@ class ProductsController extends Controller
             throw new \PDOException($e->getMessage(), (int)$e->getCode());  // stops the execution if there is an error - check env file and steps makes sure all the info is correct
         }
 
-        $sqlTemplate = "INSERT INTO reviews (name, sku, review) 
+        $sqlTemplate = "INSERT INTO reviews (name, sku, review)
             VALUES (:name, :sku, :review)";
 
         $VALUES = [
@@ -135,10 +159,14 @@ class ProductsController extends Controller
 
 
         $statement = $pdo->prepare($sqlTemplate);
-        $statement->execute($VALUES);
+        $statement->execute($VALUES); */
 
         // from class
         // return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' => true]);    //  sends back to individual product page by invocate back to product, specify sku, get from hidden variable - include data to show that the review was accepted  FLASH - - shows for one page request
+
+        // redo persisting to the database using framework method
+
+
 
         return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' => true]);
     }
