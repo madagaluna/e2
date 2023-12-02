@@ -56,10 +56,9 @@ class ProductsController extends Controller
     public function saveReview()
     {
         $this->app->validate([
-          //  'id' => 'required',
+            'id' => 'required',
             'sku' => 'required',
             'name' => 'required', # Note how multiple validation rules are separated by a |
-
             'review' => 'required|minLength:200' # Note that some rules accept paramaters, which follow a :
         ]);
 
@@ -71,6 +70,7 @@ class ProductsController extends Controller
 
         // return'Save Review ...';  //collect form data and persist it to database (in past used superglobals $__GET/ e.g. dump($__POST['sku'])) but here we are using a method from the framework - using the INPUT method e.g. dump($this->app->input('sku'));  allows to provide default values as a second parameter ('sku', []) ... now set variables
         //  $id = ($this->app->input('id'));  // I'm not certain - it was added to the table as a PK, keep it hidden on show blade - wasn't part of assignment so no...??
+        $product_id = ($this->app->input('product_id'));
         $sku = ($this->app->input('sku'));
         $name = ($this->app->input('name'));
         $review = ($this->app->input('review'));
@@ -79,6 +79,7 @@ class ProductsController extends Controller
         # todo: persist review to the database ...*/
 
         $this ->app->db()->insert('reviews', [
+          'product_id' => $product_id,
           'sku' => $sku,
           'name' => $name,
           'review' => $review

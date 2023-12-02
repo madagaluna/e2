@@ -97,24 +97,6 @@ class AppController extends Controller
 
 
 
-        #Example 3 CREATE USING PREPARED STATEMENT _ USE THIS CUZ IT"S MORE SECURE and OPtimized- insert data into table
-
-        $sqlTemplate = "INSERT INTO products (name, sku, description, price, available, weight, perishable) 
-        VALUES (:name, :sku, :description, :price, :available, :weight, :perishable)";
-
-        $values = [
-            'name' => 'Driscoll’s Strawberries',  // inject input from form into database using a superglobal: 'name' => $POST'name' or -with framework - 'name' => $this ->app->input('name'),
-            'sku' => 'driscolls-strawberries',
-            'description' => 'Driscoll’s Strawberries are consistently the best, sweetest, juiciest strawberries available. This size is the best selling, as it is both convenient for completing a cherished family recipes and for preparing a quick snack straight from the fridge.',
-            'sku' => 'driscolls-strawberries',
-            'price' => 4.99,
-            'available' => 0,
-            'weight' => 1,
-            'perishable' => 1,
-        ];
-
-        $statement = $pdo->prepare($sqlTemplate);
-        $statement->execute($values);
 
 
         #Example 2 CREATE - insert data into table DON"T USE THIS - can input sql to harm database
@@ -130,6 +112,27 @@ class AppController extends Controller
             1)";
 
         $pdo->query($sql);
+
+        #Example 3 CREATE USING PREPARED STATEMENT _ USE THIS CUZ IT"S MORE SECURE and OPtimized- insert data into table
+
+        $sqlTemplate = "INSERT INTO products (name, sku, description, price, available, weight, perishable) 
+        VALUES (:name, :sku, :description, :price, :available, :weight, :perishable)";
+
+        $values = [
+           // 'product_id' => '1',
+            'name' => 'Driscoll’s Strawberries',  // inject input from form into database using a superglobal: 'name' => $POST'name' or -with framework - 'name' => $this ->app->input('name'),
+            'sku' => 'driscolls-strawberries',
+            'description' => 'Driscoll’s Strawberries are consistently the best, sweetest, juiciest strawberries available. This size is the best selling, as it is both convenient for completing a cherished family recipes and for preparing a quick snack straight from the fridge.',
+            'sku' => 'driscolls-strawberries',
+            'price' => 4.99,
+            'available' => 0,
+            'weight' => 1,
+            'perishable' => 1,
+        ];
+
+        $statement = $pdo->prepare($sqlTemplate);
+        $statement->execute($values);
+
 
     }
 

@@ -32,6 +32,7 @@
     <form method='POST' id='product-review' action='/products/save-review'>
         <!-- action - the form '/products/save-review'doesn't exist yet -->
         <h3>Review {{ $product['name'] }}</h3>
+        <input type='hidden' name='product_id' value='{{ $product['id'] }}'>
         <input type='hidden' name='sku' value='{{ $product['sku'] }}'>
         <!-- stores hidden content, allows the sku to be injected into input -->
         <div class='form-group'>
