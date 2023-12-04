@@ -56,10 +56,10 @@ class ProductsController extends Controller
     public function saveReview()
     {
         $this->app->validate([
-            'id' => 'required',
+            'product_id' => 'required',
             'sku' => 'required',
             'name' => 'required', # Note how multiple validation rules are separated by a |
-            'review' => 'required|minLength:200' # Note that some rules accept paramaters, which follow a :
+            'review' => 'required|minLength:100' # Note that some rules accept parameters, which follow a :
         ]);
 
         // if the above validation checks fail
@@ -80,7 +80,7 @@ class ProductsController extends Controller
 
         $this ->app->db()->insert('reviews', [
           'product_id' => $product_id,
-          'sku' => $sku,
+          //'sku' => $sku,
           'name' => $name,
           'review' => $review
         ]);
