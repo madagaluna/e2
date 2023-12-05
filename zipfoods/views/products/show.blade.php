@@ -45,12 +45,15 @@
         <div class='form-group'>
             <label for='review'>Review</label>
             <textarea name='review' id='review' class='form-control'>{{ $app->old('review') }}</textarea><!-- the names on the form are for sku, name (reviewer) amd review -->
-            (Min: 200 characters)
+            (Min: 100 characters)
         </div>
 
         <button type='submit' class='btn btn-primary'>Submit Review</button>
         <!-- submites to action - defined in routes (next step)  -->
     </form>
+
+
+
 
     @if ($app->errorsExist())
         <ul class='error alert alert-danger'>
@@ -59,6 +62,10 @@
             @endforeach
         </ul>
     @endif
+
+    <!-- Exercise 2 Week 13: New Product Form -->
+
+    <a href='/new'> Would you like to add a product?</a>
 
     <!--exercise 1 -->
     @if (!empty($reviews))
@@ -72,7 +79,6 @@
     @else
         <p>No reviews yet.</p>
     @endif
-
 
 
 

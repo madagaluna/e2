@@ -62,8 +62,6 @@ class ProductsController extends Controller
     }
 
 
-
-
     public function saveReview()
     {
         $this->app->validate([
@@ -99,5 +97,57 @@ class ProductsController extends Controller
 
 
         return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' => true]);
+    }
+
+    // exercise 2 week 13
+    public function new()  //create route for this  // can use dump($_Get['sku']); cuz its a superglobal or can use:
+    {
+
+        $sku =  $this->app->param('sku');
+
+
+        if (is_null($sku)) {
+            $this->app->redirect('/new');
+        }
+
+
+        // $product = $this->productsObj->getBySku($sku);// get individual object
+        // dump($product);
+
+        //switch to getting from db
+        $productQuery = $this->app->db()->findByColumn('products', 'sku', '=', $sku);
+
+        // EDGE CASE FOR 404 ERROR PAGE
+
+        //  if (empty($productQuery)) {
+        //      return $this->app->view('products/missing');
+        //  } else {
+        //      $product = $productQuery[0]; //returns single element , assumes unique skus
+        //  }
+        // dd($product);
+
+        $reviewSaved = $this-> app->old('new');  // using the framework method Old, looks for reviewSaved to FLASH (see redirect below) add this to the view (below)
+
+
+
+
+
+
+
+
+        // Exercise 1 week 13: getting reviews from the database for show.blade.php
+        $reviews = $this->app->db()->findByColumn('reviews', 'product_id', '=', $product['id']);
+
+        return $this->app->view('products/show', [
+            'product' => $product, //have to create show view to correspond with this
+            'reviewSaved' => $reviewSaved,
+            // Exercise 1 week 13: getting reviews from the database for show.blade.php
+            'reviews' => $reviews, // Pass the reviews to the view
+        ]);
+
+
+        $reviews = $this->app->db()->findByColumn('reviews', 'product_id', '=', $product['id']);
+
+
     }
 }
