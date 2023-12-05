@@ -18,6 +18,6 @@ return [
      '/product' => ['ProductsController', 'show'], //singular to distinguish from all products page
      '/products/save-review' => ['ProductsController', 'saveReview'], //create saveReview in ProductsController next.  aside:  Naming conventions url use dash for more than one word for search engine opt.  Method name: camelCase just for consistency here
    //  '/reviews/save-review' => ['ProductsController', 'saveReview'],
-   '/practice' => ['AppController', 'practice'],
-   '/new' => ['AppController','new '],
+     '/practice' => ['AppController', 'practice'],
+      '/newProducts' => ['AppController','new '],
 ];

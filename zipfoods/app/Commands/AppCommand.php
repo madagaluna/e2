@@ -4,6 +4,7 @@ namespace App\Commands;
 
 use App\Products;
 use Faker\Factory;
+use App\newProducts;
 
 class AppCommand extends Command
 {
@@ -18,6 +19,7 @@ class AppCommand extends Command
         $this->migrate();
         $this->seedProducts();
         $this->seedReviews();
+        $this->newProducts();
     }
 
     public function migrate()
@@ -85,6 +87,46 @@ class AppCommand extends Command
             $this->app->db()->insert('reviews', $review);
         }
         dump('reviews table has been seeded');
+    }
+
+   // Exercise 2 wk 13 
+    public function newProducts()
+    {
+        # Note that the *createTable* method automatically adds an auto-incrementing
+        # primary key column named `id` so you don’t have to include that in your array of columns.
+        $this->app->db()->createTable('newProducts', [
+            'name' => 'varchar(255)',
+            'sku' => 'varchar(255)',
+            'description' => 'text',
+            'price' => 'decimal(10,2)',
+            'available' => 'int',
+            'weight' => 'decimal(10,2)',
+            'perishable' => 'tinyint(1)'
+        ]);
+
+    public function seednewProducts()
+    {
+        $newProducts = new newProducts($this->app->path('database/products.json'));
+
+        foreach ($newProducts->getAll() as $newProducts) {
+
+            # We’re not tracking `categories`
+            unset($newProducts['categories']);
+
+            # Don’t need ID - that will get automatically added - it was hard coded in json
+            unset($newProducts['id']);
+
+            # Convert perishable boolean to int recording t/f as 1, 0 in products
+            $newProducts['perishable'] = $newProducts['perishable'] ? 1 : 0;
+
+            # Insert product
+            $this->app->db()->insert('products', $newProducts);
+        }
+        dump('newProducts table has been seeded');
+    }
+
+
+    dump('Migration complete; check the database for your new tables.');
     }
 
 }
