@@ -60,5 +60,22 @@
         </ul>
     @endif
 
+    <!--exercise 1 -->
+    @if (!empty($reviews))
+        <h3>Reviews:</h3>
+        @foreach ($reviews as $review)
+            <div class='review'>
+                <!--    <p><strong>$ review[ name etc  -->
+                <p>{{ $review['review'] }}</p>
+            </div>
+        @endforeach
+    @else
+        <p>No reviews yet.</p>
+    @endif
+
+
+
+
+
     <a href='/products'>&larr; Return to all products</a>
 @endsection

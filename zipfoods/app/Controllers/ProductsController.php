@@ -45,13 +45,24 @@ class ProductsController extends Controller
         // dd($product);
 
         $reviewSaved = $this-> app->old('reviewSaved');  // using the framework method Old, looks for reviewSaved to FLASH (see redirect below) add this to the view (below)
-
+        // Exercise 1 week 13: getting reviews from the database for show.blade.php
+        $reviews = $this->app->db()->findByColumn('reviews', 'product_id', '=', $product['id']);
 
         return $this->app->view('products/show', [
             'product' => $product, //have to create show view to correspond with this
-            'reviewSaved' => $reviewSaved
+            'reviewSaved' => $reviewSaved,
+            // Exercise 1 week 13: getting reviews from the database for show.blade.php
+            'reviews' => $reviews, // Pass the reviews to the view
         ]);
+
+
+        $reviews = $this->app->db()->findByColumn('reviews', 'product_id', '=', $product['id']);
+
+
     }
+
+
+
 
     public function saveReview()
     {
