@@ -50,10 +50,10 @@ class ProductsController extends Controller
             'review' => 'required|minLength:100'
         ]);
 
-        $product_id = ($this->app->input('product_id'));
-        $sku = ($this->app->input('sku'));
-        $name = ($this->app->input('name'));
-        $review = ($this->app->input('review'));
+        $product_id = $this->app->input('product_id');
+        $sku = $this->app->input('sku');
+        $name = $this->app->input('name');
+        $review = $this->app->input('review');
 
         $this->app->db()->insert('reviews', [
             'product_id' => $product_id,
@@ -64,7 +64,7 @@ class ProductsController extends Controller
         return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' => true]);
     }
 
-    public function new()
+    public function runNewProductsCommand()
     {
         $product = [];
 
@@ -77,13 +77,13 @@ class ProductsController extends Controller
             empty($this->app->input('new-weight')) ||
             empty($this->app->input('new-perishable'))
         ) {
-            $this->app->redirect('/new');
+            $this->app->redirect('products/new');
         }
 
-        $this->handleNewProductForm();
+        $this->handleNewProducts();
     }
 
-    private function handleNewProductForm()
+    private function handleNewProducts()
     {
         $this->app->validate([
             'new-name' => 'required',

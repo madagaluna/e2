@@ -1,17 +1,15 @@
     @extends('templates/master')
 
     @section('title')
-    Add New Products
+        Add New Products
     @endsection
 
     @section('content')
-    <!-- Exercise 2 Week 13: New Product Form -->
-    <h2> Add New Products</h2>
-
-
+        <!-- Exercise 2 Week 13: New Product Form -->
+        <h2> Add New Products</h2>
     @endsection
 
-    <form method='POST' id='new-product' action='/products/add'>
+    <form method='POST' id='new-product' action='/products/new'>
         <form method='POST' id='new-product' action='/products/add'>
             <h3>Add a New Product</h3>
 
@@ -23,14 +21,13 @@
 
             <div class='form-group'>
                 <label for='new-sku'>SKU</label>
-                <input type='text' class='form-control' name='new-sku' id='new-sku' value='{{ $app->old('new-sku') }}'
-                    required>
+                <input type='text' class='form-control' name='new-sku' id='new-sku'
+                    value='{{ $app->old('new-sku') }}' required>
             </div>
 
             <div class='form-group'>
                 <label for='new-description'>Description</label>
-                <textarea name='new-description' id='new-description' class='form-control'
-                    required>{{ $app->old('new-description') }}</textarea>
+                <textarea name='new-description' id='new-description' class='form-control' required>{{ $app->old('new-description') }}</textarea>
             </div>
 
             <div class='form-group'>
@@ -67,6 +64,3 @@
 
             <button type='submit' class='btn btn-primary'>Add Product</button>
         </form>
-
-        <button type='submit' class='btn btn-primary'>Add Product</button>
-    </form>
