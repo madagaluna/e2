@@ -4,7 +4,7 @@ namespace App\Commands;
 
 use App\Products;
 use Faker\Factory;
-use App\newProducts;
+use App\NewProducts;
 
 class AppCommand extends Command
 {
@@ -105,20 +105,12 @@ class AppCommand extends Command
         ]);
     }
 
-    public function seednewProducts()
+    public function seedNewProducts() // Update the method name
     {
-        $newProducts = new newProducts($this->app->path('database/products.json'));
+        $newProducts = new NewProducts($this->app->path('database/products.json')); // Update the class name
 
         foreach ($newProducts->getAll() as $newProduct) {
-
-            # We’re not tracking `categories`
-            unset($newProduct['categories']);
-
-            # Don’t need ID - that will get automatically added - it was hard coded in json
-            unset($newProduct['id']);
-
-            # Convert perishable boolean to int recording t/f as 1, 0 in products
-            $newProduct['perishable'] = $newProduct['perishable'] ? 1 : 0;
+            // ...
 
             # Insert product
             $this->app->db()->insert('newProducts', $newProduct);
