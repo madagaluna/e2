@@ -4,18 +4,18 @@
     {{ $product['name'] }}
 @endsection
 
+@section('head')
+    <link href='/css/products/show.css' rel='stylesheet'>
+@endsection
+
 @section('content')
     @if ($reviewSaved)
-        <div class='alert alert-success'>Thank you, your review was submitted!</div>
-        <!-- using bootstrap method class alert and alert success -->
+        <div test='review-confirmation' class='alert alert-success'>Thank you, your review was submitted!</div>
     @endif
 
-    <!-- to put the error message at the top of the page -->
     @if ($app->errorsExist())
-        <div class = 'alert alert-danger'>Please correct the errors below</div>
+        <div class='alert alert-danger'>Please correct the errors below</div>
     @endif
-
-
 
     <div id='product-show'>
         <h2>{{ $product['name'] }}</h2>
@@ -26,34 +26,30 @@
             {{ $product['description'] }}
         </p>
 
-        <div class='product-price'>${{ $product['price'] }}</div>
+        <div test='product-price' class='product-price {{ $product['price'] < 10 ? 'product-price-sale' : '' }}'>
+            ${{ $product['price'] }}
+        </div>
     </div>
 
     <form method='POST' id='product-review' action='/products/save-review'>
-        <!-- action - the form '/products/save-review'doesn't exist yet -->
         <h3>Review {{ $product['name'] }}</h3>
-        <input type='hidden' name='product_id' value='{{ $product['id'] }}'>
         <input type='hidden' name='sku' value='{{ $product['sku'] }}'>
-        <!-- stores hidden content, allows the sku to be injected into input -->
+        <input type='hidden' name='product_id' value='{{ $product['id'] }}'>
+
         <div class='form-group'>
             <label for='name'>Name</label>
-            <input type='text' class='form-control' name='name' id='name' value='{{ $app->old('name') }}'>
-            <!-- the value is keeping values filled in the form from a failed submission as is >$app->old('review') in the text area below< -->
-            <!-- name attribute IDENTIFIES input (line 30)  -->
+            <input type='text' test='reviewer-name-input' class='form-control' name='name' id='name'
+                value='{{ $app->old('name') }}'>
         </div>
 
         <div class='form-group'>
             <label for='review'>Review</label>
-            <textarea name='review' id='review' class='form-control'>{{ $app->old('review') }}</textarea><!-- the names on the form are for sku, name (reviewer) amd review -->
-            (Min: 100 characters)
+            <textarea name='review' test='review-textarea' id='review' class='form-control'>{{ $app->old('review') }}</textarea>
+            (Min: 200 characters)
         </div>
 
-        <button type='submit' class='btn btn-primary'>Submit Review</button>
-        <!-- submites to action - defined in routes (next step)  -->
+        <button type='submit' test='review-submit-button' class='btn btn-primary'>Submit Review</button>
     </form>
-
-
-
 
     @if ($app->errorsExist())
         <ul class='error alert alert-danger'>
@@ -63,25 +59,20 @@
         </ul>
     @endif
 
-    <!-- Exercise 2 Week 13: New Product Form -->
+    <div id='reviews'>
+        <h3>What our customers think...</h3>
 
-    <a href='/new'> Would you like to add a product?</a>
+        @if (!$reviews)
+            There are no reviews for this product yet.
+        @endif
 
-    <!--exercise 1 -->
-    @if (!empty($reviews))
-        <h3>Reviews:</h3>
         @foreach ($reviews as $review)
             <div class='review'>
-                <!--    <p><strong>$ review[ name etc  -->
-                <p>{{ $review['review'] }}</p>
+                <div class='review-name' test='review-name'>{{ $review['name'] }}</div>
+                <div class='review-content' test='review-content'>{{ $review['review'] }}</div>
             </div>
         @endforeach
-    @else
-        <p>No reviews yet.</p>
-    @endif
-
-
-
+    </div>
 
     <a href='/products'>&larr; Return to all products</a>
 @endsection

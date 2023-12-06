@@ -19,5 +19,6 @@ return [
      '/products/save-review' => ['ProductsController', 'saveReview'], //create saveReview in ProductsController next.  aside:  Naming conventions url use dash for more than one word for search engine opt.  Method name: camelCase just for consistency here
    //  '/reviews/save-review' => ['ProductsController', 'saveReview'],
      '/practice' => ['AppController', 'practice'],
-     '/products/new' => ['ProductsController', 'newProduct'],
+     '/products/new' => ['ProductsController', 'new'],
+     '/products/save' => ['ProductsController', 'save'],
 ];

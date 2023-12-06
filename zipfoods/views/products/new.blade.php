@@ -1,66 +1,73 @@
-    @extends('templates/master')
+@extends('templates/master')
 
-    @section('title')
-        Add New Products
-    @endsection
+@section('title')
+    New Product
+@endsection
 
-    @section('content')
-        <!-- Exercise 2 Week 13: New Product Form -->
-        <h2> Add New Products</h2>
-    @endsection
+@section('head')
+    <link href='/css/products/new.css' rel='stylesheet'>
+@endsection
 
-    <form method='POST' id='new-product' action='/products/new'>
-        <form method='POST' id='new-product' action='/products/add'>
-            <h3>Add a New Product</h3>
+@section('content')
 
-            <div class='form-group'>
-                <label for='new-name'>Name</label>
-                <input type='text' class='form-control' name='new-name' id='new-name'
-                    value='{{ $app->old('new-name') }}' required>
-            </div>
+    @if ($productSaved)
+        <div class='alert alert-success'>Thank you, your product was added! <a href='/product?sku={{ $sku }}'>You
+                can view it here...</a></div>
+    @endif
 
-            <div class='form-group'>
-                <label for='new-sku'>SKU</label>
-                <input type='text' class='form-control' name='new-sku' id='new-sku'
-                    value='{{ $app->old('new-sku') }}' required>
-            </div>
+    @if ($app->errorsExist())
+        <div class='alert alert-danger'>Please correct the errors below</div>
+    @endif
 
-            <div class='form-group'>
-                <label for='new-description'>Description</label>
-                <textarea name='new-description' id='new-description' class='form-control' required>{{ $app->old('new-description') }}</textarea>
-            </div>
+    <form id='new-product-form' method='POST' action='/products/save'>
+        <h2>New Product</h2>
+        <div class='info'>All fields are required</div>
 
-            <div class='form-group'>
-                <label for='new-price'>Price</label>
-                <input type='number' step='0.01' class='form-control' name='new-price' id='new-price'
-                    value='{{ $app->old('new-price') }}' required>
-            </div>
+        <div class='form-group'>
+            <label for='name'>Name</label>
+            <input type='text' class='form-control' name='name' id='name' value='{{ $app->old('name') }}'>
+        </div>
 
-            <div class='form-group'>
-                <label for='new-available'>Available</label>
-                <input type='number' class='form-control' name='new-available' id='new-available'
-                    value='{{ $app->old('new-available') }}' required>
-            </div>
+        <div class='form-group'>
+            <label for='sku'>SKU</label>
+            <input type='text' class='form-control' name='sku' id='sku' value='{{ $app->old('sku') }}'>
+            <div class='info'>Can only contain numbers, letters, dashes, and/or underscores.</div>
+        </div>
 
-            <div class='form-group'>
-                <label for='new-weight'>Weight</label>
-                <input type='number' step='0.01' class='form-control' name='new-weight' id='new-weight'
-                    value='{{ $app->old('new-weight') }}' required>
-            </div>
+        <div class='form-group'>
+            <label for='description'>Description</label>
+            <textarea name='description' id='description' class='form-control'>{{ $app->old('description') }}</textarea>
+        </div>
 
-            <div class='form-group'>
-                <label for='new-perishable'>Perishable</label>
-                <select name='new-perishable' id='new-perishable' class='form-control' required>
-                    <option value='1' {{ $app->old('new-perishable') == 1 ? 'selected' : '' }}>Yes</option>
-                    <option value='0' {{ $app->old('new-perishable') == 0 ? 'selected' : '' }}>No</option>
-                </select>
-            </div>
+        <div class='form-group'>
+            <label for='name'>Price</label>
+            $<input type='text' class='form-control' name='price' id='price' value='{{ $app->old('price') }}'>
+        </div>
 
-            <div class='form-group'>
-                <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file -->
-                <label for='new-image'>Product Image:</label>
-                <input type='file' name='new-image' id='new-image' accept='image/png, image/jpeg' required>
-            </div>
+        <div class='form-group'>
+            <label for='name'>Units available</label>
+            <input type='text' class='form-control' name='available' id='available' value='{{ $app->old('available') }}'>
+        </div>
 
-            <button type='submit' class='btn btn-primary'>Add Product</button>
-        </form>
+        <div class='form-group'>
+            <label for='name'>Weight</label>
+            <input type='text' class='form-control' name='weight' id='weight' value='{{ $app->old('weight') }}'>lbs.
+        </div>
+
+        <div class='form-group'>
+            <input type='checkbox' name='perishable' id='perishable' value=1>
+            <label for='perishable'>Perishable</label>
+        </div>
+
+        <button type='submit' class='btn btn-primary'>Add Product</button>
+    </form>
+
+    @if ($app->errorsExist())
+        <ul class='error alert alert-danger'>
+            @foreach ($app->errors() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+
+@endsection
