@@ -3,6 +3,7 @@
 namespace Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
+use Faker\Factory;
 
 class ProductPageCest
 {
@@ -38,16 +39,23 @@ class ProductPageCest
         $I->click('[test=review-submit-button]');
 
         // confirm we see the review confirmation
-        $I->seeElement('[test=review-confirmation]');
+        $I->seeElement('[test=review-confirmation]');  // assertion you get results you are looking for - presence of an element - if statement show if >alerts
 
 
         // to comfirm the review is on the page
         $I->see($name, '[test=review-name]');
         $I->see($review, '[test=review-content]');
-        // to run php vendor/bin/codecept run Acceptance --steps
+
+        // misread the instructions again and made this for products new - don't have a 200 word validation there.  Use it hear for validation quesiont (was there one?  Head is spinning and its not jsut the covid) Use Faker baby! to generate 200 rando words probably not good to be putting in here - separation of concerns and all
+        $faker = Factory::create();
+        $randomWords = $faker->words(200, true); // true = paragraph, I think
+
+        $I->fillField('[test=review-textarea]', $randomWords);
+        
+
     }
 
-    public function testPageNotFound(AcceptanceTester $I)
+    public function productNotFound(AcceptanceTester $I)
     {
         $I->amOnPage('/products/missing');
         # Assert the correct title is set on the page - in the html element
@@ -55,3 +63,5 @@ class ProductPageCest
     }
 
 }
+
+// to run: \zipfoods# php vendor/bin/codecept run Acceptance --steps

@@ -12,11 +12,11 @@ class AllProductsPageCest
         # Act
         $I->amOnPage('/products');
 
-        // Debugging step
-        $actualNumberOfElements = count($I->grabMultiple('.product-name'));
-        codecept_debug("Actual Number of Elements: $actualNumberOfElements");
+        // count
+        $productCount = count($I->grabMultiple('.product-link'));
+
 
         // Assertion
-        $I->assertGreaterThanOrEqual(10, $actualNumberOfElements, 'Expected at least 10 elements with class "product-name".'); //https://www.geeksforgeeks.org/phpunit-assertgreaterthanorequal-function/ should not have been that hard.
+        $I->assertGreaterThanOrEqual(10, $productCount, 'Expected at least 10 products');  //didn't need this cuz the code was right there, doh - would have saved me hours! !https://www.geeksforgeeks.org/phpunit-assertgreaterthanorequal-function/ should not have been that hard.
     }
 }
