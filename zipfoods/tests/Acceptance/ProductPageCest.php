@@ -47,5 +47,11 @@ class ProductPageCest
         // to run php vendor/bin/codecept run Acceptance --steps
     }
 
+    public function testPageNotFound(AcceptanceTester $I)
+    {
+        $I->amOnPage('/products/missing');
+        # Assert the correct title is set on the page - in the html element
+        $I->seeInTitle('404');
+    }
 
 }
