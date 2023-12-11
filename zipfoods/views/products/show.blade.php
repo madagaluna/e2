@@ -38,7 +38,7 @@
 
         <div class='form-group'>
             <label for='name'>Name</label>
-            <input type='text' test='reviewer-name-input' class='form-control' name='name' id='name'
+            <input test='reviewer-name-input' type='text' class='form-control' name='name' id='name'
                 value='{{ $app->old('name') }}'>
         </div>
 

@@ -4,9 +4,6 @@ namespace App\Controllers;
 
 class ProductsController extends Controller
 {
-    /**
-     *
-     */
     public function index()
     {
         $products = $this->app->db()->all('products');
@@ -16,9 +13,6 @@ class ProductsController extends Controller
         ]);
     }
 
-    /**
-     *
-     */
     public function show()
     {
         $sku = $this->app->param('sku');
@@ -36,8 +30,6 @@ class ProductsController extends Controller
         }
 
         $reviewSaved = $this->app->old('reviewSaved');
-
-
         $reviews = $this->app->db()->findByColumn('reviews', 'product_id', '=', $product['id']);
 
         return $this->app->view('products/show', [
@@ -73,7 +65,7 @@ class ProductsController extends Controller
             'review' => $review
         ]);
 
-        return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' => true]);
+        return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' => true]);  // using sku here is nice because the user sees it in the URL - so maybe use $name`
     }
 
     /**
@@ -81,7 +73,7 @@ class ProductsController extends Controller
      */
     public function new()
     {
-        $productSaved = $this->app->old('productSaved');
+        $productSaved = $this->app->old('productSaved');  // this retrieves the data from saved - flash on ln 100
         $sku = $this->app->old('sku');
 
         return $this->app->view('products/new', [
@@ -90,10 +82,8 @@ class ProductsController extends Controller
         ]);
     }
 
-    /**
-     *
-     */
-    public function save()
+
+    public function save()  // the form is being processed here
     {
         $this->app->validate([
             'name' => 'required',
@@ -106,7 +96,7 @@ class ProductsController extends Controller
 
         $this->app->db()->insert('products', $this->app->inputAll());
 
-        $this->app->redirect('/products/new', [
+        $this->app->redirect('/products/new', [   // this is the stored flash data
             'productSaved' => true,
             'sku' => $this->app->input('sku')
         ]);
