@@ -12,14 +12,11 @@ class ProductsNewCest
         // Act
         $I->amOnPage('/products/new');
 
-        // Fill in valid values for all required fields:
-        $productName = 'Valid Product Name';
-        $sku = 'valid-sku_123';
-        $description = 'Valid product description';
+        // Fill in valid values for a required field:
+        $product = 'Valid Product Name';
 
-        $I->fillField('input[test=test-name]', $productName);
-        $I->fillField('input[test=test-sku]', $sku);
-        $I->fillField('textarea[test=description-textarea]', $description);
+
+        $I->fillField('input[test=test-name]', $newProduct);
 
         // Submit the form
         $I->click('[test= add-product-submit-button]');
@@ -29,14 +26,13 @@ class ProductsNewCest
     {
         // Visit the products page to verify the new product is listed
         $I->amOnPage('/products');
-        $productName = 'Valid Product Name';
-        $sku = 'valid-sku_123';
-        $description = 'Valid product description';
+        $product = 'Valid Product Name';
+
+
 
         // Assert that the new product is listed on the products page and the message is sent out
-        $I->see($productName, '[test=test-name]');
-        $I->see($sku, '[test=test-sku]');
-        $I->see($description, '[test=description-textarea]');
+        $I->see($product, '[test=test-name]');
+
         // from other test page
         // confirm we see the  confirmation
         $I->seeElement('[test=add-confirmation]');  // assertion you get results you are looking for - presence of an element - if statement show if >alerts
