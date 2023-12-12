@@ -11,7 +11,7 @@
 @section('content')
 
     @if ($productSaved)
-        <div test='review-content' class='alert alert-success'>Thank you, your product was added! <a
+        <div test='add-confirmation' class='alert alert-success'>Thank you, your product was added! <a
                 href='/product?sku={{ $sku }}'>You
                 can view it here...</a></div>
     @endif
@@ -26,20 +26,20 @@
 
         <div class='form-group'>
             <label for='name'>Name</label>
-            <input test='test-name'type='text' class='form-control' name='name' id='name'
+            <input test='test-name' type='text' class='form-control' name='name' id='name'
                 value='{{ $app->old('name') }}'>
         </div>
 
         <div class='form-group'>
             <label for='sku'>SKU</label>
-            <input test='test-sku'type=text class='form-control' name='sku' id='sku'
+            <input test='test-sku' type=text class='form-control' name='sku' id='sku'
                 value='{{ $app->old('sku') }}'>
             <div class='info'>Can only contain numbers, letters, dashes, and/or underscores.</div>
         </div>
 
         <div class='form-group'>
             <label for='description'>Description</label>
-            <textarea name='description'test='review-textarea' id='description' class='form-control'>{{ $app->old('description') }}</textarea>
+            <textarea test='description-textarea' name='description' id='description' class='form-control'>{{ $app->old('description') }}</textarea>
         </div>
 
         <div class='form-group'>
@@ -62,7 +62,7 @@
             <label for='perishable'>Perishable</label>
         </div>
 
-        <button type='submit' class='btn btn-primary'>Add Product</button>
+        <button test= 'add-product-submit-button' type='submit' class='btn btn-primary'>Add Product</button>
     </form>
 
     @if ($app->errorsExist())

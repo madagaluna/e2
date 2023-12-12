@@ -51,7 +51,6 @@ class ProductPageCest
         $randomWords = $faker->words(200, true); // true = paragraph, I think
 
         $I->fillField('[test=review-textarea]', $randomWords);
-        
 
     }
 
