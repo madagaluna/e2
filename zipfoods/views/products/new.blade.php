@@ -11,7 +11,8 @@
 @section('content')
 
     @if ($productSaved)
-        <div test='review-confirmation' class='alert alert-success'>Thank you, your product was added! <a href='/product?sku={{ $sku }}'>You
+        <div test='review-content' class='alert alert-success'>Thank you, your product was added! <a
+                href='/product?sku={{ $sku }}'>You
                 can view it here...</a></div>
     @endif
 
