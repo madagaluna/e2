@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h2>PRODUCT NOT FOUND</h2>
+    <h2 test='product-not-found-header'>PRODUCT NOT FOUND</h2>
     <p>Sorry we were not able to find the product you were looking for.</p>
 
 

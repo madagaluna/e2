@@ -3,39 +3,45 @@
 namespace Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
+use Faker\Factory;
 
 class ProductsNewCest
 {
     // tests
     public function addNewProductTest(AcceptanceTester $I)
     {
+        //Use Faker to generate dummy data
+        $faker = Factory::create();
+        $productName = $faker->words(3, true);
+        $sku = str_replace('', '-', $productName);
+
         // Act
         $I->amOnPage('/products/new');
-
-        // Fill in valid values for a required field:
-        $product = 'Valid Product Name';
-
-
-        $I->fillField('input[test=test-name]', $newProduct);
+        $I->fillField('[test=name-input]', $productName);
+        $I->fillField('[test=sku-input]', $sku);
+        $I->fillField('[test=description-input]', $faker->paragraph(1, true));
+        $I->fillField('[test=price-input]', 4.99);
+        $I->fillField('[test=available-input]', 50);
+        $I->fillField('[test=weight-input]', 1.34);
 
         // Submit the form
-        $I->click('[test= add-product-submit-button]');
+        $I->click('[test=add-product-submit-button]');
 
-    }
-    public function viewNewProductTest(AcceptanceTester $I)
-    {
         // Visit the products page to verify the new product is listed
-        $I->amOnPage('/products');
-        $product = 'Valid Product Name';
-
-
-
-        // Assert that the new product is listed on the products page and the message is sent out
-        $I->see($product, '[test=test-name]');
-
-        // from other test page
-        // confirm we see the  confirmation
-        $I->seeElement('[test=add-confirmation]');  // assertion you get results you are looking for - presence of an element - if statement show if >alerts
-
+        $I->amOnPage('/product?sku=' . $sku);
+        $I->see($productName);
     }
+
+    // Test validation is working
+
+    public function testValidationIsWorking(AcceptanceTester $I)
+    {
+        $I->amOnPage('/products/new');
+        $I->click('[test=add-product-submit-button]');
+
+        //Assert
+        $I->seeElement('[test=validation-errors-alert]');
+    }
+
+
 }

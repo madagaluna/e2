@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h2>404 Page Not Found</h2>
+    <h2 test='product-not-found-header'>404 Page Not Found</h2>
 
 
     <p>

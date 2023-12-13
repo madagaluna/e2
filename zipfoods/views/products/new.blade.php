@@ -17,7 +17,7 @@
     @endif
 
     @if ($app->errorsExist())
-        <div class='alert alert-danger'>Please correct the errors below</div>
+        <div test='validation-errors-alert'class='alert alert-danger'>Please correct the errors below</div>
     @endif
 
     <form id='new-product-form' method='POST' action='/products/save'>
@@ -26,35 +26,35 @@
 
         <div class='form-group'>
             <label for='name'>Name</label>
-            <input test='test-name' type='text' class='form-control' name='name' id='name'
+            <input test='name-input' type='text' class='form-control' name='name' id='name'
                 value='{{ $app->old('name') }}'>
         </div>
 
         <div class='form-group'>
             <label for='sku'>SKU</label>
-            <input test='test-sku' type=text class='form-control' name='sku' id='sku'
+            <input test='sku-input' type=text class='form-control' name='sku' id='sku'
                 value='{{ $app->old('sku') }}'>
             <div class='info'>Can only contain numbers, letters, dashes, and/or underscores.</div>
         </div>
 
         <div class='form-group'>
             <label for='description'>Description</label>
-            <textarea test='description-textarea' name='description' id='description' class='form-control'>{{ $app->old('description') }}</textarea>
+            <textarea test='description-input' name='description' id='description' class='form-control'>{{ $app->old('description') }}</textarea>
         </div>
 
         <div class='form-group'>
             <label for='name'>Price</label>
-            $<input type='text' class='form-control' name='price' id='price' value='{{ $app->old('price') }}'>
+            $<input test = 'price-input' type='text' class='form-control' name='price' id='price' value='{{ $app->old('price') }}'>
         </div>
 
         <div class='form-group'>
             <label for='name'>Units available</label>
-            <input type='text' class='form-control' name='available' id='available' value='{{ $app->old('available') }}'>
+            <input test = 'available-input'  type='text' class='form-control' name='available' id='available' value='{{ $app->old('available') }}'>
         </div>
 
         <div class='form-group'>
             <label for='name'>Weight</label>
-            <input type='text' class='form-control' name='weight' id='weight' value='{{ $app->old('weight') }}'>lbs.
+            <input test = 'weight-input' type='text' class='form-control' name='weight' id='weight' value='{{ $app->old('weight') }}'>lbs.
         </div>
 
         <div class='form-group'>
