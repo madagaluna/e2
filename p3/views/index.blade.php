@@ -23,7 +23,7 @@
                 <button test='submit-button' type='submit'>BOOM!</button>
             </form> <br>
             @if ($app->errorsExist())
-                <ul class='error alert alert-danger'>
+                <ul test='validation-output' class='error alert alert-danger'>
                     @foreach ($app->errors() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
@@ -32,12 +32,14 @@
 
             @if ($choice)
                 <div test='results-div' class ='results'>
-                    The other band is playing at {{ $taken }}, you chose {{ $choice }}
+                    The other band is playing at <span test='taken-output'>{{ $taken }}</span>, you chose
+                    {{ $choice }}
 
                     @if ($play)
-                        <span class='play'>You've got a gig!</span>
+                        <span test='play-output' class='play'>You've got a gig!</span>
                     @else
-                        <span class='dance'>Dust off your dancing shoes - you're in the audience today. Feel free to pick
+                        <span test='dance-output' class='dance'>Dust off your dancing shoes - you're in the audience today.
+                            Feel free to pick
                             another
                             time.</span>
                     @endif
