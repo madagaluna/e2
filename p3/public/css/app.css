@@ -1,3 +1,35 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#logo-container {
+    margin-bottom: 20px;
+    /* Adjust the margin as needed */
+}
+
 #logo {
-    width:300px;
+    width: 300px;
+    /* Adjust the width as needed */
+}
+
+header {
+    text-align: center;
+}
+
+.results {
+    font-weight: bold;
+    margin: 20px;
+}
+
+.play {
+    color: blue;
+}
+
+.dance {
+    color: rgb(62, 209, 13);
 }

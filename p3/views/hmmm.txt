@@ -1,0 +1,8 @@
+      
+      from index.blade.php, deleted the php portion
+        <input type='radio' id='1pm' name='perform_time' value="1pm" <?php echo isset($perform_time) && $perform_time == '1pm' ? 'checked' : ''; ?>><label
+            for='1pm'>1pm</label>
+        <input type='radio' id='2pm' name='perform_time' value="2pm" <?php echo isset($perform_time) && $perform_time == '2pm' ? 'checked' : ''; ?>><label
+            for='2pm'>2pm</label>
+        <input type='radio' id='3pm' name='perform_time' value="3pm" <?php echo isset($perform_time) && $perform_time == '3pm' ? 'checked' : ''; ?>><label
+            for='3pm'>3pm</label>
