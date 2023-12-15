@@ -2,9 +2,12 @@
 
 
 @section('content')
+    <a href='/history'>&larr; Check out past past results</a>
+
+
     <h2>Enter a time to Perform!</h2>
     <h3>If no one else on your street is playing, you've got a gig.
-        <br><br> Otherwise, you've got a show to watch!<h3>
+        <br><br> Otherwise, you get to dance!<h3>
             time:<br><br><br><br>
 
             <form method='POST' action='/process'>
@@ -40,5 +43,5 @@
                     @endif
                 </div>
             @endif
-            <a href='/history'>&larr; Check out the history page</a>
+
         @endsection

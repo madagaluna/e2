@@ -57,7 +57,6 @@ class AppController extends Controller
     {
         $id = $this->app->param('id');
         $round = $this->app->db()->findById('rounds', $id);
-        dump($round);
-        return $this->app->view('round'=> $round);
+        return $this->app->view('round', ['round' => $round]);
     }
 }
