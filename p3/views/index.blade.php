@@ -11,16 +11,16 @@
             time:<br><br><br><br>
 
             <form method='POST' action='/process'>
-                <input type='radio' id='1pm' name='choice' value="1pm">
+                <input type='radio' test='1pm-radio'name='choice' value='1pm' id='1pm'>
                 <label for='1pm'>1pm</label>
 
-                <input type='radio' id='2pm' name='choice' value="2pm">
+                <input type='radio'test='2pm-radio' name='choice' value='2pm' id='2pm'>
                 <label for='2pm'>2pm</label>
 
-                <input type='radio' id='3pm' name='choice' value="3pm">
+                <input type='radio' test='3pm-radio' name='choice' value='3pm' id='3pm'>
                 <label for='3pm'>3pm</label>
 
-                <button type='submit'>BOOM!</button>
+                <button test='submit-button' type='submit'>BOOM!</button>
             </form> <br>
             @if ($app->errorsExist())
                 <ul class='error alert alert-danger'>
@@ -31,7 +31,7 @@
             @endif
 
             @if ($choice)
-                <div class ='results'>
+                <div test='results-div' class ='results'>
                     The other band is playing at {{ $taken }}, you chose {{ $choice }}
 
                     @if ($play)
