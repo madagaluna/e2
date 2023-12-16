@@ -9,15 +9,15 @@ class P3Cest
     public function playGame(AcceptanceTester $I)
     {
         $I->amOnPage('/');
+        # Assert the correct title is set on the page - in the html element
+        $I->see('Enter a time to Perform!', 'h2');
+        # Assert the existence of certain text on the page
+        $I->see('Enter a time to Perform!');
         $I->fillField('[test=3pm-radio]', '3pm');
         $I->click('[test=submit-button]');
         $I->seeElement('[test=results-div]');
 
-        # Assert the correct title is set on the page - in the html element
-        $I->see('Enter a time to Perform!', 'h2');
 
-        # Assert the existence of certain text on the page
-        $I->see('Enter a time to Perform!');
 
         $taken = $I->grabTextFrom('[test=taken-output]');
         $I->comment('Your neighbors are playing at:  ' . $taken);
