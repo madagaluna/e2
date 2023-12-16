@@ -49,7 +49,6 @@ class AppController extends Controller
     public function history()
     {
         $rounds = $this->app->db()->all('rounds');
-        dump($rounds);
         return $this->app->view('history', ['rounds' => $rounds]);
 
     }

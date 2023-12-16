@@ -9,9 +9,10 @@ class P3Cest
     public function playGame(AcceptanceTester $I)
     {
         $I->amOnPage('/');
-        //  $I->fillField('[test=3pm-radio]', '3pm');
-        // $I->click('[test=submit-button]');
-        // $I->seeElement('[test=results-div]');
+        $I->fillField('[test=3pm-radio]', '3pm');
+        $I->click('[test=submit-button]');
+        $I->seeElement('[test=results-div]');
+
         # Assert the correct title is set on the page - in the html element
         $I->see('Enter a time to Perform!', 'h2');
 
@@ -23,8 +24,10 @@ class P3Cest
 
         if($taken == '3pm') {
             $I-> seeElement('[test=play-output]');
+            $I->seeElementProperties('[test=dance-output]', ['color' => 'rgb(0, 0, 255)']);
         } else {
             $I-> seeElement('[test=dance-output]');
+            $I->seeElementProperties('[test=dance-output]', ['color' => 'rgb(209, 114, 13)']);
         }
     }
 

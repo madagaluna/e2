@@ -2,13 +2,11 @@
 
 
 @section('content')
-    <a href='/history'>&larr; Check out past past results</a>
 
+    <h2>ENTER A TIME TO PERFORM!</h2>
 
-    <h2>Enter a time to Perform!</h2>
     <h3>If no one else on your street is playing, you've got a gig.
-        <br><br> Otherwise, you get to dance!<h3>
-            time:<br><br><br><br>
+        <br> Otherwise, take another roll!<h3>
 
             <form method='POST' action='/process'>
                 <input type='radio' test='1pm-radio'name='choice' value='1pm' id='1pm'>
@@ -20,7 +18,7 @@
                 <input type='radio' test='3pm-radio' name='choice' value='3pm' id='3pm'>
                 <label for='3pm'>3pm</label>
 
-                <button test='submit-button' type='submit'>BOOM!</button>
+                <button test='submit-button' type='submit'>ROLL!</button>
             </form> <br>
             @if ($app->errorsExist())
                 <ul test='validation-output' class='error alert alert-danger'>
@@ -33,15 +31,13 @@
             @if ($choice)
                 <div test='results-div' class ='results'>
                     The other band is playing at <span test='taken-output'>{{ $taken }}</span>, you chose
-                    {{ $choice }}
-
+                    {{ $choice }} <br>
                     @if ($play)
                         <span test='play-output' class='play'>You've got a gig!</span>
                     @else
-                        <span test='dance-output' class='dance'>Dust off your dancing shoes - you're in the audience today.
-                            Feel free to pick
-                            another
-                            time.</span>
+                        <span test='dance-output' class='dance'>No Gig! Dust off your dancing shoes or pick another
+                            time!</span> <br>
+                        <a href='/history'>&larr; Check out the history of Rock or Roll</a>
                     @endif
                 </div>
             @endif

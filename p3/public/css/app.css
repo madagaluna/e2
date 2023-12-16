@@ -5,16 +5,16 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-color: rgb(177, 181, 197);
 }
 
 #logo-container {
     margin-bottom: 20px;
-    /* Adjust the margin as needed */
 }
 
 #logo {
-    width: 300px;
-    /* Adjust the width as needed */
+    width: 500px;
+
 }
 
 header {
@@ -31,5 +31,25 @@ header {
 }
 
 .dance {
-    color: rgb(62, 209, 13);
+    color: rgb(209, 114, 13);
+}
+
+button [test='submit-button'] {
+    background-color: rgb(70, 25, 166);
+    color: rgb(241, 241, 241);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover [test='submit-button'] {
+    background-color: rgb(226, 217, 62);
+    color: rgb(170, 18, 179);
+    /* Text color on hover */
+}
+
+button:active [test='submit-button'] {
+    background-color: rgb(97, 14, 57);
 }
