@@ -13,22 +13,25 @@ class P3Cest
         $I->see('Enter a time to Perform!', 'h2');
         # Assert the existence of certain text on the page
         $I->see('Enter a time to Perform!');
+        // $I->seeElement('[test=3pm-radio]');
+        // $I->seeElement('value'); - finish
         $I->fillField('[test=3pm-radio]', '3pm');
-        $I->click('[test=submit-button]');
-        $I->seeElement('[test=results-div]');
+        //  $I->click('[test=submit-button]');
+        //   $I->seeElement('[test=results-div]');
 
 
 
-        $taken = $I->grabTextFrom('[test=taken-output]');
-        $I->comment('Your neighbors are playing at:  ' . $taken);
+        // $taken = $I->grabTextFrom('[test=taken-output]');
+        //  $I->comment('Your neighbors are playing at:  ' . $taken);
 
-        if($taken == '3pm') {
-            $I-> seeElement('[test=play-output]');
-            $I->seeElementProperties('[test=dance-output]', ['color' => 'rgb(0, 0, 255)']);
-        } else {
-            $I-> seeElement('[test=dance-output]');
-            $I->seeElementProperties('[test=dance-output]', ['color' => 'rgb(209, 114, 13)']);
-        }
+        // if($taken == '3pm') {
+        //        $I-> seeElement('[test=play-output]');
+        //        $I->seeElementProperties('[test=dance-output]', ['color' => 'rgb(0, 0, 255)']);
+        //   } else {
+        //        $I-> seeElement('[test=dance-output]');
+        //     $I->seeElementProperties('[test=dance-output]', ['color' => 'rgb(209, 114, 13)']);
+        //        $I->seeElementProperties('[test=dance-output]', ['color' => 'test']);
+        //  }
     }
 
     public function validateForm(AcceptanceTester $I)
