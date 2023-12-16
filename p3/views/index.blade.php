@@ -3,10 +3,10 @@
 
 @section('content')
 
-    <h2>ENTER A TIME TO PERFORM!</h2>
+    <h2>ENTER A TIME TO ROCK!</h2>
 
-    <h3>If no one else on your street is playing, you've got a gig.
-        <br> Otherwise, take another roll!<h3>
+    <h3>If no one else on your street is playing, you've got a gig. <br>
+        <h3>
 
             <form method='POST' action='/process'>
                 <input type='radio' test='1pm-radio'name='choice' value='1pm' id='1pm'>
