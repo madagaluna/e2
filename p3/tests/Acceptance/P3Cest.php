@@ -24,11 +24,15 @@ class P3Cest
         // $I->comment('Your neighbors are playing at:  ' . $taken);
         $I->comment('The other band is playing at  ' . $taken);
 
-        if($taken == "3pm") {  //fails because it tests both and one is always wrong
-            $I->see('got a gig!');
-        //  $I->seeElementProperties('[test=results-div]', ['color' => 'rgb(0, 0, 255)']);
-        } else {
-            $I->see('No gig!');
+        if ($I->grabAttributeFrom('div.results', 'test') === 'results-div') {
+            $I->seeElement('span[test="taken-output"]');
+            $I->seeElement('span[test="play-output"]');
+            $I->dontSeeElement('span[test="dance-output"]');
+            //   if($taken == "3pm") {  //fails because it tests both and one is always wrong
+            //        $I->see('got a gig!');
+            //  $I->seeElementProperties('[test=results-div]', ['color' => 'rgb(0, 0, 255)']);
+            //    } else {
+            //       $I->see('No gig!');
             //  $I->seeElementProperties('[test=dance-output]', ['color' => 'rgb(209, 114, 13)']);
         }
     }
