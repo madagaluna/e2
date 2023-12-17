@@ -9,7 +9,7 @@
 + [ ] I am taking this course for undergraduate credit and have opted out of integrating testing into my application
 
 ## Outside resources
-
+https://stackoverflow.com/questions/43320047/codeception-radio-button-selection-issues
 ## Notes for instructor
 Thank you for all your help over the semester.
 

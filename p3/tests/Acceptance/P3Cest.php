@@ -9,29 +9,27 @@ class P3Cest
     public function playGame(AcceptanceTester $I)
     {
         $I->amOnPage('/');
+        $I->selectOption('form input[type=radio]', '3pm');
+        $I->selectOption('form input[name=choice]', '3pm');
         # Assert the correct title is set on the page - in the html element
-        $I->see('Enter a time to Perform!', 'h2');
+        $I->see('ENTER A TIME TO ROCK!', 'h2');
         # Assert the existence of certain text on the page
-        $I->see('Enter a time to Perform!');
-        // $I->seeElement('[test=3pm-radio]');
-        // $I->seeElement('value'); - finish
-        $I->fillField('[test=3pm-radio]', '3pm');
-        //  $I->click('[test=submit-button]');
-        //   $I->seeElement('[test=results-div]');
+        $I->see('ENTER A TIME TO ROCK!');
+        $I->seeElement('form input[name=choice]');
+        $I->fillField('form input[name=choice]', '3pm');
+        $I->click('[test=submit-button]');
+        $I->seeElement('[test=results-div]');
+        $taken = $I->grabTextFrom('[test=taken-output]');
+        //   $I->comment('Your neighbors are playing at:  ' . $taken);
+        $I->comment('The other band is playing at  ' . $taken);
+        if($taken == '3pm') {
+            $I->seeElement(['color' => 'rgb(0, 0, 255)']);
+        //  $I->seeElementProperties(. $taken, ['color' => 'rgb(0, 0, 255)']);
+        } else {
+            $I->comment('No gig!' . $taken);
+            $I->seeElementProperties('form inpu[test=dance-output]', ['color' => 'rgb(209, 114, 13)']);
 
-
-
-        // $taken = $I->grabTextFrom('[test=taken-output]');
-        //  $I->comment('Your neighbors are playing at:  ' . $taken);
-
-        // if($taken == '3pm') {
-        //        $I-> seeElement('[test=play-output]');
-        //        $I->seeElementProperties('[test=dance-output]', ['color' => 'rgb(0, 0, 255)']);
-        //   } else {
-        //        $I-> seeElement('[test=dance-output]');
-        //     $I->seeElementProperties('[test=dance-output]', ['color' => 'rgb(209, 114, 13)']);
-        //        $I->seeElementProperties('[test=dance-output]', ['color' => 'test']);
-        //  }
+        }
     }
 
     public function validateForm(AcceptanceTester $I)
