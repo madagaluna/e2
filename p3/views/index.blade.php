@@ -37,9 +37,9 @@
                     @else
                         <span test='dance-output' class='dance'>No Gig! Dust off your dancing shoes or pick another
                             time!</span> <br>
-                        <a href='/history'>&larr; Check out the history of Rock or Roll</a>
                     @endif
                 </div>
             @endif
+            <a href='/history'>&larr; Check out the history of Rock or Roll</a>
 
         @endsection
