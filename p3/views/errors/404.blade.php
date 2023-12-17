@@ -11,7 +11,7 @@
 <body>
 
     <h2>404 Page Not Found</h2>
-    <a href='/'>See if there is a time for you to perform ... or dance!</a>
+    <a href='/'>Rock or Roll!</a>
 
 </body>
 

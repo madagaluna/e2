@@ -41,5 +41,4 @@
                 </div>
             @endif
             <a href='/history'>&larr; Check out the history of Rock or Roll</a>
-
         @endsection
